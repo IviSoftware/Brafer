@@ -1,0 +1,140 @@
+*,*:before,*:after{
+    box-sizing: border-box;
+}
+
+
+
+:root{
+    --margin_label:15px;
+
+    --color1: #E7DEC8;
+    --color2:#CBAF87;
+    --color3:#7E8A97;
+    --color4:#30475E;
+    --color5:#EEEEEE;
+    
+}
+
+
+
+body{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-image: url(https://previews.dropbox.com/p/thumb/AA8_mS3Rr3ZKZER1fw_KZqB8MlOk0Tq4QGuQhNRkZ5hNJZJ5dLaLzVW1SX2FXmqiRUGyZu7YD2yV1VMm9ouZ1kicdGaZyydy4mG5fzFVl7L5Q10IcFr_pD-zXezd1AtRp1iP-eGLsCqqM-rqBAWBQ7s_V8Qzc3qPCMwnag5ShpMunATwiUoGoCLSnPng2mpxnBEWPdW7ut8CfIQ9Kb2G5yu8pRER_O1D5dT5m-sMUHPbfSwRlvwiJRplyuKqyzSASc1-CnxV3mqEMEUseDu6hbKof-wiW_SSyXFeeRN_S2dvp-MJREvJg0_nEauy2DAwJWl7xX0d_PukQumIBwGq0Gkh9C5F4GDZ0PpOT_Ve0Gq2_w/p.jpeg?fv_content=true&size_mode=5);
+}
+
+/*Empieza todos los estilos del titulo*/
+
+.header_logo{
+    width: 100%;
+    background-color: var(--color4);
+}
+
+
+.img_logo{
+    width: 90px;
+}
+
+/*Acaban los estilos del titulo*/
+
+
+
+/*Empieza todos los estilos del formulario*/
+
+.card-formulario{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 25%;
+    text-align: center;
+    box-shadow:  10px 5px 15px #222  ;
+    background-color: var(--color3);
+    opacity: 0.9;
+
+}
+
+
+
+.label_login , .title_login {
+    color: var(--color5);
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.label_login{                       /*Para que los label y campos de texto se pongan uno por debajo de otro*/
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.label_login , .input_login{                        
+    margin-bottom: var(--margin_label);   /*Aplicamos los margenes por debajo en los label y campos de texto*/
+}
+
+
+.input_login{
+    font-family: 'Roboto', sans-serif;
+    margin-top: var(--margin_label);  
+    width: 100%;
+    height: 30px;
+    border:0;
+    color: #30475E;
+    outline: 0;
+    border-radius: 40px;                /*Aplicamos un margen por debajo en los campos de texto para separar*/
+}
+
+.input_login:focus{
+    border: 1px solid var(--color2);
+}
+
+
+/*empiezan estilos responsive*/
+
+@media only screen and (max-width: 800px){
+    .card-formulario{
+        width: 80%;
+    }   
+}
+
+/*
+@media only screen and (max-width: 1080px){
+    .card-formulario{
+        height: 90%;
+        width: 80%;
+        font-size: 50px;
+    }   
+
+    .img_logo{
+        width: 25%;
+    }
+}*/
+
+ /*Acaban*/
+
+
+/*acaba todos los estilos del formulario*/
+
+/*Estilos del boton*/
+
+.BraferWood{
+    opacity: 1;
+    margin-bottom: 70px;
+    outline: 0;
+    border: 0;
+    border-radius: 40px;
+    width: 150px;
+    height: 40px;
+    background-color:var(--color2);
+    color: var(--color5);
+}
+
+.BraferWood:hover{
+    background-color: var(--color1);
+    color: #30475E;
+}
+
+/*Acaban estilos del boton*/
