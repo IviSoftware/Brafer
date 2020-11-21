@@ -1,0 +1,62 @@
+
+
+/**/
+/*Empezamos la codificacion*/
+
+
+
+.logo{
+    width: 70px;
+    padding: 5px;
+}
+
+.navBar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+    height: 70px;
+    background-color: var(--SpaceBlue);
+    
+}
+
+
+
+.listBar{
+    display: flex;
+    height: 100%;
+}
+
+.itemListBar{
+    list-style:none;
+    margin-right: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.itemListBar:hover{
+    background-color: var(--SpaceBlueSelection);
+    cursor: pointer;
+    transition: .4s;
+    
+}
+
+.linkBar{
+    
+    color: var(--WoodWhite) ;
+    text-decoration: none;
+}
+
+
+
+/* empiezan estilos para el boton en responsive */
+.btn-menu{
+    margin-right: 30px;
+    font-size: 25px;
+    color: var(--WoodWhite) ;
+    cursor: pointer;
+    display: none;
+}
+
+/*Acaban los estilos para el boton responsive*/

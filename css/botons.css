@@ -1,0 +1,18 @@
+.BraferWood{
+    opacity: 1;
+    margin-bottom: 70px;
+    outline: 0;
+    border: 0;
+    border-radius: 40px;
+    width: 150px;
+    height: 40px;
+    background-color:var(--Wood);
+    color: var(--color5);
+    font-family: 'Roboto', sans-serif;
+}
+
+.BraferWood:hover{
+    background-color: var(--WoodWhite);
+    color: #30475E;
+    cursor: pointer;
+}

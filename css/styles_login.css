@@ -1,19 +1,4 @@
-*,*:before,*:after{
-    box-sizing: border-box;
-}
 
-
-
-:root{
-    --margin_label:15px;
-
-    --color1: #E7DEC8;
-    --color2:#CBAF87;
-    --color3:#7E8A97;
-    --color4:#30475E;
-    --color5:#EEEEEE;
-    
-}
 
 
 
@@ -31,7 +16,7 @@ body{
 
 .header_logo{
     width: 100%;
-    background-color: var(--color4);
+    background-color: var(--SpaceBlue);
 }
 
 
@@ -52,7 +37,7 @@ body{
     width: 25%;
     text-align: center;
     box-shadow:  10px 5px 15px #222  ;
-    background-color: var(--color3);
+    background-color: var(--BraferGray);
     opacity: 0.9;
 
 }
@@ -60,7 +45,7 @@ body{
 
 
 .label_login , .title_login {
-    color: var(--color5);
+    color: var(--WoodWhite);
     font-family: 'Roboto', sans-serif;
 }
 
@@ -88,7 +73,7 @@ body{
 }
 
 .input_login:focus{
-    border: 1px solid var(--color2);
+    border: 1px solid var(--Wood);
 }
 
 
@@ -117,24 +102,3 @@ body{
 
 
 /*acaba todos los estilos del formulario*/
-
-/*Estilos del boton*/
-
-.BraferWood{
-    opacity: 1;
-    margin-bottom: 70px;
-    outline: 0;
-    border: 0;
-    border-radius: 40px;
-    width: 150px;
-    height: 40px;
-    background-color:var(--color2);
-    color: var(--color5);
-}
-
-.BraferWood:hover{
-    background-color: var(--color1);
-    color: #30475E;
-}
-
-/*Acaban estilos del boton*/
