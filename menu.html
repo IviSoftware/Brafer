@@ -15,9 +15,20 @@
 </head>
 <body>
     <nav  class="navBar">
+
+        <div class="headerResponsive">
+
         <img  class="logo" 
         src="https://i.postimg.cc/nh4D9Z7J/Imagen-logo.png" alt="Logo">
-        <ul class="listBar">
+
+
+        <span class="btn-menu" id="botonResponsive">
+            <i class="fa fa-bars"></i>
+        </span>
+        
+        </div>
+
+        <ul class="listBar" id="listBarMenu">
             <li class="itemListBar"><a class="linkBar" href="#">Inventario</a></li>
             <li class="itemListBar"><a class="linkBar" href="#">Ventas</a></li>
             <li class="itemListBar"><a class="linkBar" href="#">Clientes</a></li>
@@ -27,8 +38,9 @@
             <li class="itemListBar"><a class="linkBar" href="#">Cuenta</a></li>
         </ul>
     </nav>
-    <span class="btn-menu">
-        <i class="fa fa-bars"></i>
-    </span>
+
+
+    <script src="Scripts/menuCode.js"></script>
+    
 </body>
 </html>
