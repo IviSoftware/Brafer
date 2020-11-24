@@ -1,3 +1,7 @@
+:root{
+    --SizeCards : 200px;
+}
+
 .inventario{
     display: flex;
     flex-direction: column;
@@ -12,10 +16,60 @@
     
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 15px;
 }
 
 .inventarioContainer{
     width: 80%;
-    height: 200px;
+
     border: solid 1px black;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
+
+.cardInventario{
+    margin: 10px;
+    width: var(--SizeCards);
+    height: var(--SizeCards);
+    border: solid 1px black;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    
+}
+
+.cardTitle{
+    text-align: center;
+    width: 100%;
+    background-color: var(--SpaceBlueSelection);
+    opacity: 0.9;
+    color: white;
+    margin: 0;
+    display: none;
+}
+
+.cardInventario:hover .cardTitle{
+  
+    display: block;
+    height: 60px;
+   
+
+    
+}
+
+/*Card que aparece solo cuando no se tiene agregado nada*/
+
+.cardInventarioAdd{
+    margin: 10px;
+    width: var(--SizeCards);
+    height: var(--SizeCards);
+    border: solid 1px black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+/*Card que aparece solo cuando no se tiene agregado nada*/
+
