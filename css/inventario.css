@@ -1,0 +1,21 @@
+.inventario{
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    align-items: center;
+}
+
+.inventarioNav{
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    
+    justify-content: space-between;
+    align-items: center;
+}
+
+.inventarioContainer{
+    width: 80%;
+    height: 200px;
+    border: solid 1px black;
+}
