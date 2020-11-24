@@ -10,7 +10,7 @@ header{
     width: 100%;
     height: auto;
     background: var(--SpaceBlue);
-    color: var(--woodWhite);
+    color: var(--WoodWhite);
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -30,11 +30,13 @@ header::after{
     
 }
 
+
+
 .site-nav{
    top:100%;
     right:0;
     position: absolute;
-    
+    color: var(--WoodWhite);
     background: var(--SpaceBlue);
     clip-path: circle(0px at top right);
     transition: clip-path ease-in-out 700ms;
@@ -54,7 +56,7 @@ header::after{
     border-bottom: none;
 }
 .site-nav a{
-    color: #ebedb3;
+    color: var(--WoodWhite);
     display: block;
     padding: 2em 6em;
     text-transform: uppercase;
