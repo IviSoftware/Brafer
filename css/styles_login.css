@@ -74,7 +74,9 @@ body{
 
 .input_login:focus{
     border: 1px solid var(--Wood);
+    
 }
+
 
 
 /*empiezan estilos responsive*/

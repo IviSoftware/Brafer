@@ -77,14 +77,20 @@
 
 .barSearch{
     width: 0;
-    height: 30px;
+    height: 0;
     font-size: 20px;
     outline: none;
     border: 1px black solid;
     border-radius: 30px;
     transition: all 0.6s ease;
+    width: 200px;
+    height: 30px;
+    margin-bottom: 15px;
+
+   
 }
 
+/*
 .btn{
     display: inline-block;
     position: relative;
@@ -97,20 +103,26 @@
     color: var(--WoodWhite);
     text-align: center;
     cursor: pointer;
+    
 }
 
-
 .formSearch:hover .barSearch {
-    width: 250px;
+    
+    width: 200px;
+    height: 30px;
 }
 
 .formSearch .barSearch:focus {
     width: 200px;
+    height: 30px;
 }
-
+*/
 .BraferBlue{
     margin: 0;
     margin-right: 10px;
+}
+.formSearch{
+    margin-bottom: 10px;
 }
 
 /*Termina Barra de buscar*/

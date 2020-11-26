@@ -1,0 +1,54 @@
+:root{
+    --height: 15%;
+}
+
+.bodyCaja{
+   
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cajaContainer{
+    width: 80%;
+    height: auto;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    padding: 5%;
+}
+
+.money{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom:  var(--height) ;
+}
+
+.administrador{
+    align-self: center;
+    margin-bottom:  var(--height) ;
+}
+
+.botonesForm{
+  
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+   
+    
+
+}
+
+.BraferBlue{
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.BraferBlue a{
+   color: var(--WoodWhite);
+    text-decoration: none;
+}
