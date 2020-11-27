@@ -28,10 +28,22 @@
     background-color:var(--SpaceBlue);
     color: var(--WoodWhite);
     font-family: 'Roboto', sans-serif;
+    text-decoration: none;
 }
 
 .BraferBlue:hover{
     background-color: var(--WoodWhite);
     color: #30475E;
     cursor: pointer;
+}
+
+.aBraferBlue{
+    text-decoration: none;
+    color:var(--WoodWhite);
+}
+
+.BraferBlueDiv{
+    display: flex;
+    justify-content:center;
+    align-items: center;
 }

@@ -1,0 +1,50 @@
+.cajaForm{
+    width: 80%;
+    margin: auto;
+    border: 1px solid black;
+    padding: 3%;
+}
+
+
+.radioEntradaSalida{
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+    margin-bottom: 30px;
+}
+
+.txtInputs{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+
+.radioClienteOptions{
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+    margin-bottom: 30px;
+}
+
+.cajaBotonsForm{
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+}
+
+.BraferBlue{
+    margin: 0;
+}
+
+.formCancel{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formCancel a{
+    text-decoration: none;
+    color: var(--WoodWhite);
+}

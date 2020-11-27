@@ -10,8 +10,10 @@
     <link rel="stylesheet" href="css/BraferColors.css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/botons.css">
+    <link rel="stylesheet" href="css/registroCaja.css">
+    <link rel="shortcut icon" href="Iconos/Imagen-logo.ico" type="image/x-icon">
     
-    <title>Menu | Brafer</title>
+    <title>Caja | Brafer</title>
 </head>
 <body>
     <header> <!--Inicia el menu-->
@@ -38,6 +40,64 @@
         </div>
 
     </header> <!--Termina el menu-->
+
+
+    <section class="cajaForm">
+        <form class="formCajaEntrada">
+
+            <div class="radioEntradaSalida">
+                <label for="entrada">entrada extra de dinero
+                    <input type="radio" required name="radioEntrada_salida" id="radioEntrada_salida">
+                </label>
+            
+
+                <label for="salida">Salida extra de dinero
+                    <input type="radio"  required name="radioEntrada_salida" id="radioEntrada_salida">
+                </label>
+            </div>
+
+            <div class="txtInputs">
+                <label for="Txtnombre">Nombre</label>
+                <input type="text" required name="Txtnombre" id="Txtnombre">
+
+                <label for="Txtnombre">descripción</label>
+                
+                <textarea name="Txtdescription" required rows="10" cols="25" id="Txtdescription"></textarea>
+
+                <label for="Txtnombre">Total</label>
+                <input type="number" required name="Txtnombre" id="Txtn">
+            </div>
+
+
+            <div class="radioClienteOptions">
+                <label for="cliente">cliente
+                    <input type="radio" required name="radioForm" id="radioForm">
+                </label>
+                
+
+                <label for="acreedor">Acreedor
+                    <input type="radio" required name="radioForm" id="radioForm">
+                </label>
+                
+
+                <label for="otro">Otro
+                    <input type="radio" required name="radioForm" id="radioForm">
+                </label>
+            </div>
+
+            <div class="cajaBotonsForm">
+                <input class="BraferBlue" type="submit" value="Acceptar">
+
+                <div class="BraferBlue  , formCancel">
+                    <a  href="caja.html">Cancelar</a>
+                </div>
+            </div>
+
+
+        </form>
+    </section>
+
+
 
     <script src="Scripts/app.js"></script>
 </body>

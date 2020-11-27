@@ -10,8 +10,10 @@
     <link rel="stylesheet" href="css/BraferColors.css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/botons.css">
+    <link rel="stylesheet" href="css/cerrarCaja.css">
     <link rel="shortcut icon" href="Iconos/Imagen-logo.ico" type="image/x-icon">
-    <title>Estadisticas | Brafer</title>
+    
+    <title>Menu | Brafer</title>
 </head>
 <body>
     <header> <!--Inicia el menu-->
@@ -39,7 +41,27 @@
 
     </header> <!--Termina el menu-->
 
-    <h1 style="text-align: center">Estadisticas</h1>
+    <div class="cerrarCajaAlerta">
+
+        <h1> ¡ Esta apunto de cerrar la caja !</h1>
+
+        <h2>¿ Esta seguro ?</h2>
+        <form method="POST" action="cajaCerrada.html">
+            <label >
+              Confirme su contraseña
+              <input type="password" required name="passwordAdminCaja" id="passwordAdminCaja">  
+            </label>
+
+            <div class="botonesAviso">
+                <input class="BraferBlue" type="submit" value="Cerrar Caja" >
+                
+                <div class="BraferBlue , BraferBlueDiv">
+                    <a class="aBraferBlue" href="caja.html">Cancelar</a>
+                </div>
+                
+            </div>
+        </form>
+    </div>
 
     <script src="Scripts/app.js"></script>
 </body>
