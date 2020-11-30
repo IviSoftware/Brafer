@@ -21,7 +21,7 @@
 
 .inventarioContainer{
     width: 80%;
-
+    margin: auto;
     border: solid 1px black;
     display: flex;
     justify-content: space-between;
@@ -126,3 +126,11 @@
 }
 
 /*Termina Barra de buscar*/
+
+
+/*Inicia css para Agregar cosas*/
+
+
+
+
+/*termina css para agregar cosas*/

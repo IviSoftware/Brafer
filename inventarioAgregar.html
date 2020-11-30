@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
     <link rel="stylesheet" href="css/menu.css">
@@ -11,12 +10,12 @@
     <link rel="stylesheet" href="css/BraferColors.css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/botons.css">
-    <link rel="stylesheet" href="css/inventario.css">
     <link rel="shortcut icon" href="Iconos/Imagen-logo.ico" type="image/x-icon">
-    <title>Inventario | Brafer</title>
+    <link rel="stylesheet" href="css/inventario.css">
+    
+    <title>Inventario Agregar | Brafer</title>
 </head>
 <body>
-    
     <header> <!--Inicia el menu-->
 
         <div class="container">
@@ -42,44 +41,61 @@
 
     </header> <!--Termina el menu-->
 
+    <div class="inventarioContainer">
 
-    <section class="inventario">
+        <form >
 
-        <div class="inventarioNav">
-            <h1>Mi inventario</h1>
+            <img src="#" alt="imagen">
 
-            <form class="formSearch" >
-                
-                
-                <input class="barSearch" type="text" placeholder="Buscar..." required name="searchBar" id="searchBarInventario">
-                <input class="BraferBlue" type="submit" value="Buscar">
+            <input class="BraferBlue" type="button" value="Subir img">
 
-               
-            </form>
+            <label>
+                Producto
+                <input type="text"placeholder="Nombre" >
+            </label>
 
-            <a href="inventarioAgregar.html">agregar</a>
+            
+            <label>
+                Categoria
+                <input type="text" placeholder="categoria">
+            </label>
 
-        </div>
+            <label >
+                Producto Interno
+            <input type="radio" name="productoI/E">
+            </label>
 
-        <div class="inventarioContainer">
+            
+            <label >
+                Producto Externo
+            <input type="radio" name="productoI/E">
+            </label>
+
+            <label>
+                ID
+                <input type="number" placeholder="ID" >
+            </label>
+
+            <label>
+                Precio Mayoreo
+                <input type="number" placeholder="Mayoreo" >
+            </label>
+
+            <label>
+                Precio Menudeo
+                <input type="number" placeholder="Menudeo" >
+            </label>
 
 
 
-            <div class="cardInventario" id="cardOne" >
-                
-                
-                <p class="cardTitle">
-                    productName
-                </p>
-                
-            </div>
+            <input class="BraferBlue"  type="submit" value="Agregar">
+            <input class="BraferBlue" type="submit" value="Borrar">
 
+            <a href="Inventario.html">Cancelar</a>
 
-          
+        </form>
 
-        </div>
-
-    </section>
+       
 
     <script src="Scripts/app.js"></script>
 </body>
