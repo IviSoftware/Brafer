@@ -1,0 +1,19 @@
+.containerBoxClientes{
+    width: 80%;
+    height: 100vh;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.BraferBlue{
+    width: 200px;
+}
+
+@media(max-width:400px){
+    .containerBoxClientes{
+        justify-content: center;
+    }
+}
