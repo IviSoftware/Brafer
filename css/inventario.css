@@ -9,6 +9,10 @@
     align-items: center;
 }
 
+.linkProduct{
+    text-decoration: none;
+    color: var(--WoodWhite);
+}
 .inventarioNav{
     width: 80%;
     display: flex;
@@ -130,7 +134,70 @@
 
 /*Inicia css para Agregar cosas*/
 
+.imagenAgregar,.radioAgregarInventario,.productoCategoriaAgregar,.botonesAgregarInventario,.preciosAgregar{
+    margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+}
 
+.radioAgregarInventario{
+    display: flex;
+    justify-content: space-between;
 
+}
 
+.productoCategoriaAgregar{
+    display: flex;
+    flex-direction: column;
+}
+
+.botonesAgregarInventario{
+    display: flex;
+    justify-content: space-between;
+}
+
+.formInventarioAgregar{
+    margin: auto;
+    width: 80%;
+
+}
+
+.preciosAgregar{
+  
+    justify-content: space-around;
+
+}
+
+.preciosAgregar label{
+    margin-left: 5px;
+    margin-bottom: 10px;
+} 
 /*termina css para agregar cosas*/
+
+
+/*Empieza css de Produto Agregado*/
+
+
+.ImageAndDatesAdd{
+    display:flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.inventarioContainerAdd{
+    width: 80%;
+    margin: auto;
+    border: solid 1px black;
+
+}
+
+.datesAdd label{
+    display: block;
+}
+
+.readyLogoContainer{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+/*Termina css de prodcuto Agregado*/

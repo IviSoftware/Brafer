@@ -43,56 +43,68 @@
 
     <div class="inventarioContainer">
 
-        <form >
+        <form action="productoAgregado.html" class="formInventarioAgregar" >
 
-            <img src="#" alt="imagen">
+            <div class="imagenAgregar">
+                <img src="#" alt="imagen">
 
-            <input class="BraferBlue" type="button" value="Subir img">
+                <input class="BraferBlue" type="button" value="Subir img">
+            </div>
 
-            <label>
-                Producto
-                <input type="text"placeholder="Nombre" >
-            </label>
-
-            
-            <label>
-                Categoria
-                <input type="text" placeholder="categoria">
-            </label>
-
-            <label >
-                Producto Interno
-            <input type="radio" name="productoI/E">
-            </label>
-
-            
-            <label >
-                Producto Externo
-            <input type="radio" name="productoI/E">
-            </label>
-
-            <label>
-                ID
-                <input type="number" placeholder="ID" >
-            </label>
-
-            <label>
-                Precio Mayoreo
-                <input type="number" placeholder="Mayoreo" >
-            </label>
-
-            <label>
-                Precio Menudeo
-                <input type="number" placeholder="Menudeo" >
-            </label>
+            <div class="productoCategoriaAgregar">
+                <label>
+                    Producto
+                    <input type="text"placeholder="Nombre" >
+                </label>
+                <br>
+                
+                <label>
+                    Categoria
+                    <input type="text" placeholder="categoria">
+                </label>
+            </div>
 
 
+            <div class="radioAgregarInventario">
+                <label >
+                    Producto Interno
+                <input type="radio" name="productoI/E">
+                </label>
 
-            <input class="BraferBlue"  type="submit" value="Agregar">
-            <input class="BraferBlue" type="submit" value="Borrar">
+                
+                <label >
+                    Producto Externo
+                <input type="radio" name="productoI/E">
+                </label>
 
-            <a href="Inventario.html">Cancelar</a>
+            </div>
 
+
+            <div class="preciosAgregar">
+                <label>
+                    ID
+                    <input type="number" min="0" max="1000" placeholder="ID" >
+                </label>
+
+                <label>
+                    Precio Mayoreo
+                    <input type="number" min="0" max="1000" placeholder="Mayoreo" >
+                </label>
+
+                <label>
+                    Precio Menudeo
+                    <input type="number" min="0" max="1000" placeholder="Menudeo" >
+                </label>
+            </div>
+
+            <br>
+            <div class="botonesAgregarInventario">
+                <input class="BraferBlue"  type="submit" value="Agregar">
+                
+            <!--  <input class="BraferBlue" type="submit" value="Borrar"> -->
+
+                <a href="Inventario.html">Cancelar</a>
+            </div>
         </form>
 
        

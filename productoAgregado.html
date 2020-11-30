@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="css/botons.css">
     <link rel="stylesheet" href="css/inventario.css">
     <link rel="shortcut icon" href="Iconos/Imagen-logo.ico" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/7663d03649.js" crossorigin="anonymous"></script>
     <title>Inventario | Brafer</title>
 </head>
 <body>
@@ -47,38 +48,37 @@
 
         <div class="inventarioNav">
             <h1>Mi inventario</h1>
-
-            <form class="formSearch" >
-                
-                
-                <input class="barSearch" type="text" placeholder="Buscar..." required name="searchBar" id="searchBarInventario">
-                <input class="BraferBlue" type="submit" value="Buscar">
-
-               
-            </form>
-
-            <a href="inventarioAgregar.html">agregar</a>
-
         </div>
 
-        <div class="inventarioContainer">
+    
 
+        <div class="inventarioContainerAdd">      
+            <h2 style="text-align: center;">Producto agregado</h2>
+         <div class="readyLogoContainer">
+            <i class="fas fa-check-circle" style="font-size: 50px; "></i>
+         </div>
+           
+      
+            <div class="ImageAndDatesAdd">
+                <img src="#" alt="imgProductoAgregado">
 
-
-            <div class="cardInventario" id="cardOne" >
-                
-                
-                <p class="cardTitle">
-                    <a href="productoAgregado.html" class="linkProduct">ProductName</a>
-                </p>
-                
+                <div class="datesAdd">
+                    <label>Producto</label>
+                    <label >ID</label>
+                    <label >Categoria</label>
+                    <label >Precio Mayoria</label>
+                    <label >Precio Menudeo</label>
+                    <label >Interno/Externo</label>
+                    
+                </div>
+         
             </div>
-
-
-          
-
+            <div class="botonesAddReady">
+                <div class="BraferBlue , BraferBlueDiv "><a class="aBraferBlue" href="Inventario.html">inventario</a></div>
+                <div class="BraferBlue , BraferBlueDiv "><a class="aBraferBlue" href="#">Editar</a></div>
+                <div class="BraferBlue , BraferBlueDiv "><a class="aBraferBlue" href="#">Borrar</a></div>
+            </div>
         </div>
-
     </section>
 
     <script src="Scripts/app.js"></script>
