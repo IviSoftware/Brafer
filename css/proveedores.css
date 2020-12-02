@@ -1,0 +1,68 @@
+.tableDiv{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.formDiv{
+    border: solid 1px black;
+    width: 20%;
+ 
+
+}
+
+.formDiv form{
+    display: flex;
+    flex-direction: column;
+    
+    
+}
+
+.formDiv input{
+    margin: 20px;
+}
+
+.barSearchTable{
+    width: 350px;
+    margin: auto;
+    border-radius: 30px;
+    outline: none;
+
+}
+
+.tableBase{
+    width: 70%;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+.linksTable{
+    width: 100%;
+    margin: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+.BraferBlue{
+    margin:0;
+}
+
+.formBarSearch{
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.tableBDS{
+    width: 100%;
+    border: solid 1px black;
+}
