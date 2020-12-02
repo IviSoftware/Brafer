@@ -11,10 +11,8 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/botons.css">
     <link rel="shortcut icon" href="Iconos/Imagen-logo.ico" type="image/x-icon">
-    <link rel="stylesheet" href="css/clientes.css">
     <link rel="stylesheet" href="css/container.css">
-
-    
+    <link rel="stylesheet" href="css/clienteFrecuente.css">    
     <title>Menu | Brafer</title>
 </head>
 <body>
@@ -43,11 +41,21 @@
 
     </header> <!--Termina el menu-->
 
-    <h1 style="text-align: center;">Clientes</h1>
-    <div class="containerBoxClientes">
+    <div class="containerBox">
+        <h1 style="text-align: center;">Buscar en la base de datos</h1>
 
-        <div class="BraferBlue , BraferBlueDiv"><a href="nuevoCliente.html" class="aBraferBlue">Nuevo Cliente</a></div>
-        <div class="BraferBlue , BraferBlueDiv"><a href="clienteFrecuente.html" class="aBraferBlue">Ya ha Comprado</a></div>
+        <form class="FormClienteFrecuente" action="clienteOptions.html">
+            <label for="">Nombre</label><input type="text" name="" id="">
+            <label for="">Apellidos</label><input type="text" name="" id="">
+
+            <div class="BotonsClienteFrecuente">
+                <input type="submit" class="BraferBlue" value="Buscar">
+
+                <div class="BraferBlue , BraferBlueDiv">
+                    <a href="Clientes.html" class="aBraferBlue">cancelar</a>
+                </div>
+            </div>
+        </form>
     </div>
 
     <script src="Scripts/app.js"></script>

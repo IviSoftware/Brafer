@@ -6,16 +6,14 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
     <link rel="stylesheet" href="css/menu.css">
-
+    <link rel="stylesheet" href="css/clientes.css">
     <link rel="stylesheet" href="css/BraferColors.css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/botons.css">
     <link rel="shortcut icon" href="Iconos/Imagen-logo.ico" type="image/x-icon">
-    <link rel="stylesheet" href="css/clientes.css">
     <link rel="stylesheet" href="css/container.css">
-
-    
-    <title>Menu | Brafer</title>
+    <script src="https://kit.fontawesome.com/7663d03649.js" crossorigin="anonymous"></script>
+    <title>Cliente Agregado | Brafer</title>
 </head>
 <body>
     <header> <!--Inicia el menu-->
@@ -43,11 +41,26 @@
 
     </header> <!--Termina el menu-->
 
-    <h1 style="text-align: center;">Clientes</h1>
-    <div class="containerBoxClientes">
 
-        <div class="BraferBlue , BraferBlueDiv"><a href="nuevoCliente.html" class="aBraferBlue">Nuevo Cliente</a></div>
-        <div class="BraferBlue , BraferBlueDiv"><a href="clienteFrecuente.html" class="aBraferBlue">Ya ha Comprado</a></div>
+    <div class="containerBox">
+
+        <div class="containerBoxCliente , containerBoxClienteTwo ">
+            <h1 style="text-align: center;">Cliente Agregado</h1>
+            
+            <div class="readyLogoContainer">
+                <i class="fas fa-check-circle" style="font-size: 50px; "></i>
+            </div>
+
+            <label for="">ID</label>
+            <label for="">Nombre Completo</label>
+            <label for="">Dirección</label>
+            <label for="">Telefono</label>
+
+            <div class="botonesClienteAgregado">
+                <div class="BraferBlue , BraferBlueDiv"><a class="aBraferBlue" href="clienteOptions.html">Listo</a></div>
+                <div class="BraferBlue , BraferBlueDiv"><a class="aBraferBlue" href="nuevoCliente.html">Editar</a></div>
+            </div>
+        </div>
     </div>
 
     <script src="Scripts/app.js"></script>

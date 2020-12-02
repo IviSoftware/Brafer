@@ -13,9 +13,8 @@
     <link rel="shortcut icon" href="Iconos/Imagen-logo.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/clientes.css">
     <link rel="stylesheet" href="css/container.css">
-
     
-    <title>Menu | Brafer</title>
+    <title>Nuevo Cliente | Brafer</title>
 </head>
 <body>
     <header> <!--Inicia el menu-->
@@ -43,11 +42,32 @@
 
     </header> <!--Termina el menu-->
 
-    <h1 style="text-align: center;">Clientes</h1>
-    <div class="containerBoxClientes">
+    <div class="containerBox">
+        <h1 style="text-align: center;">Gracias por elegirnos</h1>
 
-        <div class="BraferBlue , BraferBlueDiv"><a href="nuevoCliente.html" class="aBraferBlue">Nuevo Cliente</a></div>
-        <div class="BraferBlue , BraferBlueDiv"><a href="clienteFrecuente.html" class="aBraferBlue">Ya ha Comprado</a></div>
+        <form action="ClienteAgregado.html" class="formNewCliente">
+            <label for="idCliente" class="labelFormNewCliente">ID </label>
+            <input type="text" name=""  required  id="idCliente">
+
+            <label for="nombreCliente" class="labelFormNewCliente">Nombre</label>
+            <input type="text" name="" required  id="nombreCliente">
+
+            <label for="apellidosCliente" class="labelFormNewCliente">Apellidos</label>
+            <input type="text" name="" required  id="apellidosCliente">
+
+            <label for="directionCliente" class="labelFormNewCliente">Dirección</label>
+            <input type="text" name="" id="directionCliente">
+
+            <label for="telefonoCliente" class="labelFormNewCliente">Telefonos</label>
+            <input type="text" name=""  required id="telefonoCliente">
+
+            <input class="BraferBlue" type="submit" value="Registrar">
+
+            <div class="BraferBlue , BraferBlueDiv">
+                <a href="Clientes.html" class="aBraferBlue">Cancelar</a>
+            </div>
+
+        </form>
     </div>
 
     <script src="Scripts/app.js"></script>

@@ -11,11 +11,11 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/botons.css">
     <link rel="shortcut icon" href="Iconos/Imagen-logo.ico" type="image/x-icon">
-    <link rel="stylesheet" href="css/clientes.css">
     <link rel="stylesheet" href="css/container.css">
-
+    <link rel="stylesheet" href="css/clienteProductolisto.css">
+    <script src="https://kit.fontawesome.com/7663d03649.js" crossorigin="anonymous"></script>
     
-    <title>Menu | Brafer</title>
+    <title>Clientes | Brafer</title>
 </head>
 <body>
     <header> <!--Inicia el menu-->
@@ -43,12 +43,25 @@
 
     </header> <!--Termina el menu-->
 
-    <h1 style="text-align: center;">Clientes</h1>
-    <div class="containerBoxClientes">
+    <div class="containerBox , containerBoxClientes">
+        <h2 style="text-align: center;"> Producto listo </h2>
 
-        <div class="BraferBlue , BraferBlueDiv"><a href="nuevoCliente.html" class="aBraferBlue">Nuevo Cliente</a></div>
-        <div class="BraferBlue , BraferBlueDiv"><a href="clienteFrecuente.html" class="aBraferBlue">Ya ha Comprado</a></div>
+        <i class="fas fa-check-circle" style="font-size: 50px; "></i>
+
+        <label for="">Nombre completo</label>
+        <label for="">Material/Producto</label>
+        <label for="">Descripción</label>
+        <label for="">ID cliente</label>
+        <label for="">Costo Final</label>
+
+        <div class="botonesClienteProduct">
+            <div class="BraferBlue , BraferBlueDiv"><a class="aBraferBlue" href="Clientes.html">listo</a></div>
+            <div class="BraferBlue , BraferBlueDiv"><a class="aBraferBlue" href="clienteOptions.html">Cancelar</a></div>
+        </div>
+
     </div>
+
+    
 
     <script src="Scripts/app.js"></script>
 </body>

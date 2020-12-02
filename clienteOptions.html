@@ -11,11 +11,11 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/botons.css">
     <link rel="shortcut icon" href="Iconos/Imagen-logo.ico" type="image/x-icon">
-    <link rel="stylesheet" href="css/clientes.css">
     <link rel="stylesheet" href="css/container.css">
+    <link rel="stylesheet" href="css/clienteOptions.css">
 
     
-    <title>Menu | Brafer</title>
+    <title>Opciones | Brafer</title>
 </head>
 <body>
     <header> <!--Inicia el menu-->
@@ -44,10 +44,44 @@
     </header> <!--Termina el menu-->
 
     <h1 style="text-align: center;">Clientes</h1>
-    <div class="containerBoxClientes">
 
-        <div class="BraferBlue , BraferBlueDiv"><a href="nuevoCliente.html" class="aBraferBlue">Nuevo Cliente</a></div>
-        <div class="BraferBlue , BraferBlueDiv"><a href="clienteFrecuente.html" class="aBraferBlue">Ya ha Comprado</a></div>
+    
+    <div class="containerBox">
+     <h2 style="text-align: center;">Cliente : Nombre del cliente</h2>
+
+        <form action="ClienteProductoListo.html">
+            <div class="radioContainerClienteOptions">
+
+                <label for="radioClienteOption">Apartado
+                <input type="radio" name="radioClienteOption" required id="radioClienteOption1"></label>
+
+                <label for="radioClienteOption">Compra
+                <input type="radio" name="radioClienteOption" required id="radioClienteOption2"></label>
+
+                <label for="radioClienteOption">Reconstruccion
+                <input type="radio" name="radioClienteOption" required id="radioClienteOption3"></label>
+
+            </div>
+
+            <div class="inputContainerClienteOptions">
+
+                <label>Material / Producto</label><input type="text" required name="" id="">
+                <label>Descripción </label><textarea name="Txtdescription" required rows="10" cols="25" id="Txtdescription"></textarea>
+                <label>Costo total $ </label> <input type="number" name="" id="" required>
+                
+
+            </div>
+
+            <div class="botonsClienteOptions">
+                <input type="submit" value="Listo" class="BraferBlue">
+
+
+                <div class="BraferBlue , BraferBlueDiv">
+                    <a href="Clientes.html" class="aBraferBlue">Cancelar</a>
+                </div>
+            </div>
+
+        </form>
     </div>
 
     <script src="Scripts/app.js"></script>
