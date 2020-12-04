@@ -196,9 +196,17 @@
     display: block;
 }
 
+.datesAdd{
+    margin-left: 10px;
+}
+
 .readyLogoContainer{
     display: flex;
     justify-content: center;
     margin-bottom: 30px;
+}
+
+.botonesAddReady{
+    margin: 30px;
 }
 /*Termina css de prodcuto Agregado*/
