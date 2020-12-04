@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+    <link rel="stylesheet" href="css/menu.css">
+
+    <link rel="stylesheet" href="css/BraferColors.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/botons.css">
+    <link rel="shortcut icon" href="Iconos/Imagen-logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/proveedores.css">
+    
+    <title>Socios | Brafer</title>
+</head>
+<body>
+    <header> <!--Inicia el menu-->
+
+        <div class="container">
+            <img  class="logo" src="https://i.postimg.cc/nh4D9Z7J/Imagen-logo.png" alt="Logo" width="60px">
+        </div>
+        
+        <nav id="site-nav" class="site-nav">
+            <ul>
+                <li><a href="Inventario.html">Inventario</a>
+                <li><a href="Ventas.html">Ventas</a>
+                <li><a href="Clientes.html">Clientes</a>
+                <li><a href="Proveedores.html">Proveedores</a>
+                <li><a href="Acreedores.html">Acreedores</a>
+                <li><a href="Socios.html">Socios</a>
+                <li><a href="Cuenta.html">Cuenta</a>
+            </ul>
+        </nav>
+
+        <div id="menu-toggle" class="menu-toggle" onClick="cambiarClase()">
+            <div class="hamburger"></div>
+        
+        </div>
+
+    </header> <!--Termina el menu-->
+
+    <div class="tableDiv" >
+        <div class="formDiv">
+            <form action="">
+                <input placeholder="Nombre del Socio" type="text">
+                <input placeholder="Colonia" type="text">
+                <input placeholder="Calle" type="text">
+                <input placeholder="Codigo postal" type="number">
+                <input placeholder="Telefono" type="number">
+
+                <input type="submit" value="Listo">
+            </form>
+        </div>
+
+        <div class="tableBase">
+
+            <form action="" class="formBarSearch">
+                <input type="text" placeholder="Buscar..." class="barSearchTable">
+
+                <input type="submit" value="Buscar" class="BraferBlue">
+
+            </form>
+
+            <div class="linksTable">
+                <a href="#">Eliminar</a>
+                <a href="#">Editar</a>
+            </div>
+
+            <div class="table">
+               
+                    <table class="tableBDS">
+
+                        <tr>
+                      
+                          <th>Nombre</th>
+                      
+                          <th>Dirección</th>
+                      
+                          <th>Codigo postal</th>
+
+                          <th>Telefono</th>
+                      
+                        </tr>
+                      
+                        <tr>
+                      
+                          <td>0</td>
+                      
+                          <td>0</td>
+                      
+                          <td>0</td>
+
+                          <td>0</td>
+                      
+                          <td>0</td>
+                      
+                        </tr>
+                      
+                        
+                      
+                      </table>
+
+                
+            </div>
+
+        </div>
+    </div>
+
+    <script src="Scripts/app.js"></script>
+</body>
+</html>
