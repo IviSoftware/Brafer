@@ -34,8 +34,8 @@ header::after{
 
 
 .site-nav{
-   top:100%;
-    right:0;
+    top:100%;
+    right:400px;
     position: absolute;
     color: var(--WoodWhite);
     background: var(--SpaceBlue);

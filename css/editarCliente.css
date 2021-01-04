@@ -1,5 +1,5 @@
 .containerBoxClientes{
-    width: 320px;
+    width: 220px;
     height: 50px;
     /*margin: auto;*/
     margin-left: 1100px;
@@ -64,11 +64,11 @@ h3{
 }
 
 .formu{
-    margin-left: 250px;
+    margin-left: 35%;
     width: 500px;
     padding: 30px;
-    margin-top: -35px;
-    height: 769px;
+    margin-top: -5px;
+    height: 749px;
     border-radius: 10px;
     background-color:  var(--SpaceBlue);
     color: var(--WoodWhite);
@@ -76,7 +76,7 @@ h3{
 .controls, .controls1{
     margin-top: 2px;
     width: 100%;
-    height: 45px;
+    height: 40px;
     padding: 8px;
     border-radius: 6px;
     margin-bottom: 16px;
@@ -85,7 +85,7 @@ h3{
     border: solid 1px #ccc;
 }
 .buscar{
-    margin-left: 1430px;
+    margin-left: 1330px;
     margin-top: -37px;
 }
 .s{
@@ -94,7 +94,7 @@ h3{
     border-radius: 5px;
 }
 .search{
-    width: 90px;
+    width: 50px;
     height: 30px;
     margin-top: -10px;
     border-radius: 5px;
@@ -108,7 +108,7 @@ h3{
 .table tbody{
     height: 258px;
     overflow-y: auto;
-    width: 796px;
+    width: 729px
 }
 .table thead,
 .table tbody,
@@ -132,31 +132,25 @@ th{
 td{
     padding: 3px;
 }
-#edit{
-    background-color: white;
-    color:var(--SpaceBlue);
-    margin-left: -60px;
+.edit{
+    background-color: cornflowerblue;
+    color: white;
+    margin-left: -47px;
     margin-top: -10px;
-    height: 39px;
+    height: 24px;
 }
-#delete{
+.delete{
     background-color: red;
     color: white;
-    margin-left: 10px;
+    margin-left: 45px;
     margin-top: -40px;
-    height: 39px;
+    height: 24px;
 }
-#acre{
-    margin-top: -110px;
-    margin-left: -110px;
+#tiposu{
+    margin-left: 40px;
 }
-#info{
-    margin-left: 100px;
-}
-#tipos{
-    margin-left: 30px;
-}
-#tips{
+#tipsu{
     font-size: 25px;
 }
+
 /*Acaba css de nuevo cliente*/

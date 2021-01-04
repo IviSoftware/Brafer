@@ -23,7 +23,7 @@
     outline: 0;
     border: 0;
     border-radius: 40px;
-    width: 90px;
+    width: 150px;
     height: 40px;
     background-color:var(--SpaceBlue);
     color: var(--WoodWhite);
@@ -31,11 +31,11 @@
     text-decoration: none;
 }
 
-.BraferBlue:hover{
+/*.BraferBlue:hover{
     background-color: var(--WoodWhite);
-    color: #30475E;
+    color:var(--SpaceBlue);
     cursor: pointer;
-}
+}*/
 
 .aBraferBlue{
     text-decoration: none;
