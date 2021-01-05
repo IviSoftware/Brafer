@@ -44,11 +44,11 @@
     <div class="tableDiv" >
         <div class="formDiv">
             <form action="">
-                <input placeholder="ID" type="text">
-                <input placeholder="Nombre" type="text">
-                <input placeholder="Apellido" type="text">
-                <input placeholder="contrato" type="number">
-                <input placeholder="Fecha de entrada" type="month">
+                <input placeholder="ID" required type="number">
+                <input placeholder="Nombre" required type="text" onkeypress="return soloLetras(event)" >
+                <input placeholder="Apellido" required type="text" onkeypress="return soloLetras(event)" >
+                <input placeholder="contrato" required type="number" >
+                <input placeholder="Fecha de entrada" required type="month">
                 
 
 
@@ -119,5 +119,6 @@
     </div>
 
     <script src="Scripts/app.js"></script>
+    <script src="Scripts/validacionParaLetras.js"></script>
 </body>
 </html>

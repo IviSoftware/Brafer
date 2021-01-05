@@ -44,13 +44,13 @@
     <div class="tableDiv" >
         <div class="formDiv">
             <form action="">
-                <input placeholder="Nombre Completo" type="text">
-                <input placeholder="Dia a pagar" type="text">
-                <input placeholder="Total del producto" type="text">
-                <input placeholder="Monto pagado" type="text">
-                <input placeholder="Monto restante" type="text">
-                <input placeholder="Nuevo abono" type="text">
-                <input placeholder="Restante actualizado" type="text">
+                <input placeholder="Nombre Completo" required onkeypress="return soloLetras(event)"  type="text">
+                <input placeholder="Dia a pagar" required onkeypress="return soloLetras(event)"  type="text">
+                <input placeholder="Total del producto" required type="number">
+                <input placeholder="Monto pagado" required type="number">
+                <input placeholder="Monto restante" required type="number">
+                <input placeholder="Nuevo abono" required type="number">
+                <input placeholder="Restante actualizado" required type="number">
 
                 <input type="submit" value="Listo">
             </form>
@@ -121,5 +121,6 @@
     </div>
 
     <script src="Scripts/app.js"></script>
+    <script src="Scripts/validacionParaLetras.js"></script>
 </body>
 </html>

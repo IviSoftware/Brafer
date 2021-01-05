@@ -54,13 +54,13 @@
             <div class="productoCategoriaAgregar">
                 <label>
                     Producto
-                    <input type="text"placeholder="Nombre" >
+                    <input type="text"placeholder="Nombre" onkeypress="return soloLetras(event)" >
                 </label>
                 <br>
                 
                 <label>
                     Categoria
-                    <input type="text" placeholder="categoria">
+                    <input type="text" placeholder="categoria" onkeypress="return soloLetras(event)">
                 </label>
             </div>
 
@@ -110,5 +110,6 @@
        
 
     <script src="Scripts/app.js"></script>
+    <script src="Scripts/validacionParaLetras.js"></script>
 </body>
 </html>

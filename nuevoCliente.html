@@ -50,16 +50,16 @@
             <input type="text" name=""  required  id="idCliente">
 
             <label for="nombreCliente" class="labelFormNewCliente">Nombre</label>
-            <input type="text" name="" required  id="nombreCliente">
+            <input type="text" name="" required onkeypress="return soloLetras(event)"  id="nombreCliente">
 
             <label for="apellidosCliente" class="labelFormNewCliente">Apellidos</label>
-            <input type="text" name="" required  id="apellidosCliente">
+            <input type="text" name="" required onkeypress="return soloLetras(event)"  id="apellidosCliente">
 
             <label for="directionCliente" class="labelFormNewCliente">Dirección</label>
-            <input type="text" name="" id="directionCliente">
+            <input type="text" name="" onkeypress="return soloLetras(event)"  id="directionCliente">
 
             <label for="telefonoCliente" class="labelFormNewCliente">Telefonos</label>
-            <input type="text" name=""  required id="telefonoCliente">
+            <input type="number" name=""  required id="telefonoCliente">
 
             <input class="BraferBlue" type="submit" value="Registrar">
 
@@ -71,5 +71,6 @@
     </div>
 
     <script src="Scripts/app.js"></script>
+    <script src="Scripts/validacionParaLetras.js"></script>
 </body>
 </html>
