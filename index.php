@@ -36,14 +36,14 @@
                 
                 <span>Ingresa tu correo</span>
 
-                <input  class="input_login" type="text" placeholder="Correo">
+                <input  class="input_login" type="text" required placeholder="Correo">
             </label>
 
             
             <label class="label_login">
                 <span>Ingresa tu contraseña</span>
 
-                <input  class="input_login" type="password" placeholder="contraseña">
+                <input  class="input_login" type="password" required placeholder="contraseña">
             </label>
 
             <input type="submit" value="Iniciar sesión"  class="BraferWood">
