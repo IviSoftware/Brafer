@@ -22,7 +22,7 @@ header{
 header::after{
     content: '';
     clear: both;
-    display: block;
+    display: none;
 }
 .logo{
    
@@ -35,18 +35,20 @@ header::after{
 
 .site-nav{
     top:100%;
-    right:400px;
+    right:0;
     position: absolute;
     color: var(--WoodWhite);
     background: var(--SpaceBlue);
     clip-path: circle(0px at top right);
     transition: clip-path ease-in-out 700ms;
+    
 }
 .site-nav-open{
     clip-path: circle(150% at top right);
 }
 .site-nav ul{
     margin: 0;
+    margin-right: 5px;
     padding: 0;
     list-style: none;
 }
