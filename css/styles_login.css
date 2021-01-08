@@ -8,9 +8,9 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-
-    background-image: url(https://pixabay.com/get/53e9d4454953b108feda8460da29317e123edfe5555574_1920.jpg);
+    background-color: var(--SpaceBlueDark);
 }
+
 
 /*Empieza todos los estilos del titulo*/
 
