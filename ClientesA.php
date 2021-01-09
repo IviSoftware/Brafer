@@ -123,6 +123,7 @@
         <tbody id="miTabla">
         </tbody>
     </section>
+    
     <script src="Scripts/app.js"></script>
 </body>
 </html>

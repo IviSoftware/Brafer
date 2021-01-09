@@ -1,10 +1,8 @@
 .containerBoxClientes{
-    width: 320px;
-    height: 50px;
+
     /*margin: auto;*/
-    margin-left: 1100px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
     margin-top: 20px;
@@ -44,10 +42,10 @@
     justify-content: space-around;
     flex-wrap: wrap;
 }
-h3{
+/*h3{
     font-size: 30px;
     margin-top: -5px;
-}
+}*/
 
 .boton{
     width: 100%;
