@@ -12,7 +12,7 @@ function conectar(){
     }
 }
 $conexion=conectar();
-$resultado=$conexion->prepare("SELECT proveedores.idProveedor,proveedores.proveedor, material.material, proveedores.precioMaterial FROM proveedores, material WHERE proveedores.Material_idMaterial=material.idMaterial");
+$resultado=$conexion->prepare("SELECT proveedores.idProveedor, proveedores.proveedor,proveedores.precioMaterial, material.material FROM proveedores, material WHERE proveedores.Material_idMaterial=material.idMaterial");
 $resultado->execute();
 while ($fila = $resultado->fetch(PDO::FETCH_ASSOC))
 {

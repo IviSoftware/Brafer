@@ -1,5 +1,15 @@
 <?php
 include_once 'datos/Conexion.php';
+session_start();
+if(!isset($_SESSION['nombre_usuario'])){
+    header("Location: index.php");
+}else{
+    if($_SESSION['nombre_usuario']!="Admin"){
+        header("Location: index.php");
+    }else{
+    }
+}
+
 $conexionMate=conectar();
 $querys=$conexionMate->prepare("SELECT idMaterial, material FROM material");
 $querys->execute();
@@ -121,7 +131,8 @@ $querys->execute();
                     data: datos,
                     success: function(e){
                     if(e==1){
-                        alert("Cliente registrado");
+                        alert("Proveedor registrado");
+                        $('#frmProv')[0].reset();
                     }else if(e==2){
                         alert("Debe llenar todos los campos");
                     }else if(e==3){
@@ -132,4 +143,23 @@ $querys->execute();
                 return false;
         });         
     });
+</script>
+<script type="text/javascript"> 
+    $(document).on("click", "#delete", function() {
+        if(confirm("¿Esta seguro de eliminar el proveedor?")){
+            var id=$(this).data("id");
+            $.ajax({
+                type:"POST",
+                url:"eliminarPro.php",
+                data: {id: id,},
+                success: function(e){
+                    if(e==1){
+                        alert("Proveedor eliminado");
+                    }else if(e==2){
+                        alert("Error en la eliminación");
+                    }
+                }
+            });
+        }
+   });
 </script>

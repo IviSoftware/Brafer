@@ -1,5 +1,5 @@
 <?php
-/*include_once 'datos/Conexion.php';
+include_once 'datos/Conexion.php';
     session_start();
     if(!isset($_SESSION['nombre_usuario'])){
         header("Location: index.php");
@@ -8,7 +8,7 @@
             header("Location: index.php");
         }else{
         }
-    }*/
+    }
 ?>
 
 <!DOCTYPE html>

@@ -68,7 +68,7 @@ h3{
     width: 500px;
     padding: 30px;
     margin-top: 10px;
-    height: 400px;
+    height: 350px;
     border-radius: 10px;
     background-color:  var(--SpaceBlue);
     color: var(--WoodWhite);
@@ -86,9 +86,9 @@ h3{
 }
 
 .table tbody{
-    height: 198px;
+    height: 298px;
     overflow-y: auto;
-    width: 420px;
+    width: 900px;
 }
 .table thead,
 .table tbody,
@@ -103,7 +103,7 @@ h3{
 }
 #miTablas1{
     margin-left: 910px;
-    margin-top: -390px;
+    margin-top: -350px;
 }
 th{
     background-color: var(--SpaceBlue);

@@ -1,7 +1,16 @@
 <?php
 include_once 'datos/Conexion.php';
+session_start();
+if(!isset($_SESSION['nombre_usuario'])){
+    header("Location: index.php");
+}else{
+    if($_SESSION['nombre_usuario']!="Admin"){
+        header("Location: index.php");
+    }else{
+    }
+}
 $conexion=conectar();
-$query=$conexion->prepare("SELECT * FROM empleado");
+$query=$conexion->prepare("SELECT * FROM empleados");
 $query->execute();
 ?>
 <!DOCTYPE html>
@@ -56,12 +65,12 @@ $query->execute();
 				<tr class="active" style="width:1200px">
 					<th style="width:80px" scope="col">ID</th>
                     <th style="width:180px" scope="col">Nombre</th>
-					<th style="width:160px" scope="col">Apellido</th>
+					<th style="width:185px" scope="col">Apellido</th>
                     <th style="width:173px" scope="col">Fecha nacimiento</th>
-                    <th style="width:120px" scope="col">RFC</th>
-					<th style="width:142px" scope="col">Puesto</th>
-                    <th style="width:143px" scope="col">Horas trabajo</th>
-                    <th style="width:190px" scope="col">Sueldo</th>
+                    <th style="width:177px" scope="col">RFC</th>
+					<th style="width:120px" scope="col">Puesto</th>
+                    <th style="width:160px" scope="col">Horas trabajo</th>
+                    <th style="width:122px" scope="col">Sueldo</th>
                     <th style="width:190px" scope="col">Fecha captura</th>
 				</tr>
 			</thead>
@@ -71,15 +80,15 @@ $query->execute();
                 {
                 ?>
                 <tr class="active" style="width:1500px">
-                    <td style="width:85px"><?php echo $fila['idCliente'] ?></td>
-                    <td style="width:176px"><?php echo $fila['nombreCliente'] ?></td>
-                    <td style="width:160px"><?php echo $fila['apellidosCliente'] ?></td>
-                    <td style="width:174px"><?php echo $fila['direccionCliente'] ?></td>
-                    <td style="width:123px"><?php echo $fila['Estado'] ?></td>
-                    <td style="width:140px"><?php echo $fila['Municipio'] ?></td>
-                    <td style="width:140px"><?php echo $fila['telefono'] ?></td>
-                    <td style="width:190px"><?php echo $fila['email'] ?></td>
-                    <td style="width:275px"><?php echo $fila['CURP'] ?></td>
+                    <td style="width:85px"><?php echo $fila['idEmpleado'] ?></td>
+                    <td style="width:176px"><?php echo $fila['nombreEmpleado'] ?></td>
+                    <td style="width:195px"><?php echo $fila['apellidosEmpleado'] ?></td>
+                    <td style="width:160px"><?php echo $fila['fechaNacimiento'] ?></td>
+                    <td style="width:160px"><?php echo $fila['RFC'] ?></td>
+                    <td style="width:170px"><?php echo $fila['puesto'] ?></td>
+                    <td style="width:130px"><?php echo $fila['horasTrabajo'] ?></td>
+                    <td style="width:110px"><?php echo $fila['sueldo'] ?></td>
+                    <td style="width:275px"><?php echo $fila['fechaCaptura'] ?></td>
                 </tr>
                 <?php
                 }

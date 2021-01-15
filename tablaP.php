@@ -1,5 +1,15 @@
 <?php
 include_once 'datos/Conexion.php';
+session_start();
+if(!isset($_SESSION['nombre_usuario'])){
+    header("Location: index.php");
+}else{
+    if($_SESSION['nombre_usuario']!="Admin"){
+        header("Location: index.php");
+    }else{
+    }
+}
+
 $conexion=conectar();
 $query=$conexion->prepare("SELECT P.idProveedor, P.proveedor, P.direccionPro, P.telefono, P.fechaCaptura, P.precioMaterial, E.Estado, M.Municipio, MA.material
 FROM proveedores AS P

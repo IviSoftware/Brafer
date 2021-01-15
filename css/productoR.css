@@ -68,7 +68,7 @@ margin-left: 250px;
 width: 500px;
 padding: 30px;
 margin-top: -35px;
-height: 730px;
+height: 630px;
 border-radius: 10px;
 background-color:  var(--SpaceBlue);
 color: var(--WoodWhite);
@@ -103,7 +103,7 @@ border-bottom-width: 0;
 }
 #miTablas{
 margin-left: 950px;
-margin-top: -660px;
+margin-top: -550px;
 }
 th{
 background-color: var(--SpaceBlue);
@@ -119,22 +119,18 @@ margin-left: -60px;
 margin-top: -10px;
 height: 39px;
 }
-#delete{
-background-color: red;
-color: white;
-margin-left: 10px;
-margin-top: -40px;
-height: 39px;
-}
+
 #buy{
-    background-color: darkgreen;
-    color: white;
+    background-color:white;
+    color: green;
     height: 28px;
+    border: none;
 }
 #add{
-    background-color:orangered;
-    color: white;
+    background-color: white;
+    color: orangered;
     height: 28px;
+    border:none;
 }
 #acre{
 margin-top: -110px;

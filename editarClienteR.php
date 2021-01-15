@@ -1,14 +1,22 @@
 <?php
-if(!isset($_GET['id'])){
-    header("Location:hola.html");
-}
 include_once 'datos/Conexion.php';
+session_start();
+if(!isset($_SESSION['nombre_usuario'])){
+    header("Location: index.php");
+}else{
+    if($_SESSION['nombre_usuario']!="Receptor"){
+        header("Location: index.php");
+    }else{
+    }
+}
+
 $conexion=conectar();
 $id=$_GET['id'];
-$resultado=$conexion->prepare("SELECT cliente.idCliente, cliente.nombreCliente,cliente.apellidosCliente,cliente.direccionCliente,cliente.fechaNacimiento,cliente.telefono,cliente.email,cliente.CURP,cliente.tipo,estado.Estado,municipio.Municipio from cliente,estado,municipio WHERE cliente.idCliente=?;");
+$resultado=$conexion->prepare("SELECT clientes.idCliente, clientes.nombreCliente,clientes.apellidosCliente,clientes.direccionCliente,clientes.fechaNacimiento,clientes.telefono,clientes.email,clientes.CURP,clientes.tipo,estado.Estado,municipio.Municipio from clientes,estado,municipio WHERE clientes.idCliente=?;");
 $resultado->execute([$id]);
-$cliente=$resultado->fetch(PDO::FETCH_OBJ);
+$clientes=$resultado->fetch(PDO::FETCH_OBJ);
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -55,21 +63,21 @@ $cliente=$resultado->fetch(PDO::FETCH_OBJ);
     <section class="formu">
         <h3>Editar cliente</h3>
     <form method="POST" action="editardatosCliente.php" id="frmCliente">
-    <td><input type="text" class="controls" name="txtNombreu" value="<?php echo $cliente->nombreCliente;?>" id="nom"></td>
-        <td><input type="text" class="controls" name="txtApellidou" value="<?php echo $cliente->apellidosCliente;?>"  id="ape"></td>
-        <td><input type="text" class="controls" name="txtCurpu" value="<?php echo $cliente->CURP;?>" id="cur"></td>
-        <td><input type="text" class="controls1" name="txtDirecionu" value="<?php echo $cliente->direccionCliente;?>" id="dir"></td>
-        <td><input type="text" class="controls" name="txtEstadou" value="<?php echo $cliente->Estado;?>" id="est"></td>
-        <td><input type="text" class="controls" name="txtMunicipiou" value="<?php echo $cliente->Municipio;?>" id="mun"></td>
-        <td><input type="text" class="controls" name="txtTelefonou" value="<?php echo $cliente->telefono;?>" id="tel"></td>
-        <td><input type="email" class="controls" name="txtEmailu" value="<?php echo $cliente->email;?>" id="ema"></td>
-        <td><input type="text" class="controls" name="txtFechau" value="<?php echo $cliente->fechaNacimiento;?>" id="fec"></td>
+    <td><input type="text" class="controls" name="txtNombreu" value="<?php echo $clientes->nombreCliente;?>" id="nom"></td>
+        <td><input type="text" class="controls" name="txtApellidou" value="<?php echo $clientes->apellidosCliente;?>"  id="ape"></td>
+        <td><input type="text" class="controls" name="txtCurpu" value="<?php echo $clientes->CURP;?>" id="cur"></td>
+        <td><input type="text" class="controls1" name="txtDirecionu" value="<?php echo $clientes->direccionCliente;?>" id="dir"></td>
+        <td><input type="text" class="controls" name="txtEstadou" value="<?php echo $clientes->Estado;?>" id="est"></td>
+        <td><input type="text" class="controls" name="txtMunicipiou" value="<?php echo $clientes->Municipio;?>" id="mun"></td>
+        <td><input type="text" class="controls" name="txtTelefonou" value="<?php echo $clientes->telefono;?>" id="tel"></td>
+        <td><input type="email" class="controls" name="txtEmailu" value="<?php echo $clientes->email;?>" id="ema"></td>
+        <td><input type="text" class="controls" name="txtFechau" value="<?php echo $clientes->fechaNacimiento;?>" id="fec"></td>
         <td><label for="tiposu" id="tipsu">Tipo de cliente</label><select name="txtTipou" id="tiposu">
             <option value="normal">Normal</option>
             <option value="socio">Socio</option>
         </select></td>
         <input type="hidden" name="oculto">
-        <input type="hidden" name="id" value="<?php echo $cliente->idCliente;?>">
+        <input type="hidden" name="id" value="<?php echo $clientes->idCliente;?>">
         <input type="submit" value="Editar cliente" class="boton" name="registrar" id="btnEditar">
     </form>
     </section> 

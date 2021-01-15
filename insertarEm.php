@@ -1,7 +1,6 @@
 <?php
 date_default_timezone_set('America/Mexico_City');
 $fechaActual=date("Y-m-d H:i:s");
-if(isset(['txtNombre'])&&isset($_POST['txtApellido'])&&isset($_POST['txtFecha'])&&isset($_POST['txtRFC'])&&isset($_POST['txtPuesto'])&&isset($_POST['txtH'])&&isset($_POST['txtSueldo'])){
     include_once 'datos/Conexion.php';
     $conexion=conectar();
     $nombre=$_POST['txtNombre'];
@@ -25,5 +24,4 @@ if(isset(['txtNombre'])&&isset($_POST['txtApellido'])&&isset($_POST['txtFecha'])
     }else{
         echo '2';
     }
-}
 ?>

@@ -1,5 +1,14 @@
 <?php
 include_once 'datos/Conexion.php';
+session_start();
+if(!isset($_SESSION['nombre_usuario'])){
+    header("Location: index.php");
+}else{
+    if($_SESSION['nombre_usuario']!="Admin"){
+        header("Location: index.php");
+    }else{
+    }
+}
 $conexion=conectar();
 $query=$conexion->prepare("SELECT C.idCliente, C.nombreCliente, C.apellidosCliente, C.direccionCliente, C.fechaNacimiento, C.telefono, C.email, C.CURP, C.tipo, C.fechaCaptura,
 E.Estado, M.Municipio FROM clientes AS C 

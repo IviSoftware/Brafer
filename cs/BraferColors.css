@@ -1,0 +1,17 @@
+*,*:before,*:after{
+    box-sizing: border-box;
+}
+
+
+
+:root{
+    --margin_label:15px;
+
+    --WoodWhite: #dddbd6;
+    --Wood:#CBAF87; 
+    --BraferGray:#7E8A97; 
+    --SpaceBlue:#30475E; 
+    --SpaceBlueSelection:#203d5a; 
+ 
+    
+}

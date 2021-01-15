@@ -1,8 +1,23 @@
 <?php
 include_once 'datos/Conexion.php';
+session_start();
+if(!isset($_SESSION['nombre_usuario'])){
+    header("Location: index.php");
+}else{
+    if($_SESSION['nombre_usuario']!="Admin"){
+        header("Location: index.php");
+    }else{
+    }
+}
+$idP=$_GET['id'];
 $conexionMate=conectar();
+$conexion=conectar();
 $querys=$conexionMate->prepare("SELECT idMaterial, material FROM material");
 $querys->execute();
+$resultado=$conexion->prepare("SELECT proveedores.idProveedor, proveedores.proveedor,proveedores.direccionPro, proveedores.telefono, proveedores.fechaCaptura,proveedores.precioMaterial ,material.material, estado.Estado, municipio.Municipio
+FROM proveedores, material, estado, municipio WHERE proveedores.idProveedor=?");
+$resultado->execute([$idP]);
+$provedor=$resultado->fetch(PDO::FETCH_OBJ);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -52,13 +67,13 @@ $querys->execute();
     <!--Empieza formulario-->
     <section class="formu">
         <h3>Actualizar Proveedor</h3>
-    <form method="POST" action="insertarPro.php" id="frmProv">
-    <td><input type="text" class="controls" name="txtPro" placeholder="Nombre del Proveedor" id="nom"></td>
-    <td><input type="text" class="controls1" name="txtDir" placeholder="Dirección del proveedor" id="dir"></td>
-        <td><input type="text" class="controls" name="txtEstado" placeholder="Estado" id="est"></td>
-        <td><input type="text" class="controls" name="txtMunicipio" placeholder="Municipio" id="mun"></td>
-        <td><input type="text" class="controls" name="txtTel" placeholder="Telefono proveedor" id="tel"></td>
-        <td><input type="text" class="controls" name="txtPrecio" placeholder="Precio del material" id="pre"></td>
+    <form method="POST"  id="frmProv" action="editarProv.php">
+    <td><input type="text" class="controls" name="txtPro" value="<?php echo $provedor->proveedor;?>"  id="nom"></td>
+    <td><input type="text" class="controls1" name="txtDir" value="<?php echo $provedor->direccionPro;?>"  id="dir"></td>
+        <td><input type="text" class="controls" name="txtEstado" value="<?php echo $provedor->Estado;?>"  id="est"></td>
+        <td><input type="text" class="controls" name="txtMunicipio" value="<?php echo $provedor->Municipio ;?>" pla id="mun"></td>
+        <td><input type="text" class="controls" name="txtTel" value="<?php echo $provedor->telefono;?>"  id="tel"></td>
+        <td><input type="text" class="controls" name="txtPrecio" value="<?php echo $provedor->precioMaterial;?>"  id="pre"></td>
         <td><label for="mate" id="mates">Material</label>
         <select name="idM" id="mate">
         <?php
@@ -70,6 +85,8 @@ $querys->execute();
                 }
             ?>
         </select></td>
+        <input type="hidden" name="oculto">
+        <input type="hidden" name="id" value="<?php echo $provedor->idProveedor;?>">
         <input type="submit" value="Editar Proveedor" class="boton" name="registrar" id="btnGuardar">
     </form>
     </section>
@@ -83,13 +100,13 @@ $querys->execute();
                 var datos=$("#frmProv").serialize();
                 $.ajax({
                     type:"POST",
-                    //url:"insertarPro.php",
+                    url:"editarProv.php",
                     data: datos,
                     success: function(e){
                     if(e==1){
                         alert("Proveedor actualizado");
                     }else if(e==2){
-                        alert("Debe llenar todos los campos");
+                        alert("Error");
                     }else if(e==3){
                         alert("Debe llenar todos los campos")
                     }

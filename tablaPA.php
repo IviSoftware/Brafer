@@ -1,5 +1,14 @@
 <?php
 include_once 'datos/Conexion.php';
+session_start();
+if(!isset($_SESSION['nombre_usuario'])){
+    header("Location: index.php");
+}else{
+    if($_SESSION['nombre_usuario']!="Admin"){
+        header("Location: index.php");
+    }else{
+    }
+}
 $conexion=conectar();
 $query=$conexion->prepare("SELECT P.idProducto, P.nombreProducto, P.codigoBarras, P.descripcion, P.precio, P.existencias, C.categoria, M.material, P.fechaCaptura FROM productos AS P
 INNER JOIN categorias AS C ON P.Categorias_idCategoria=C.idCategoria

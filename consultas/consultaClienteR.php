@@ -13,7 +13,7 @@ function conectar(){
 }
 $conexion=conectar();
 /*$resultado=$conexion->prepare("SELECT cliente.idCliente, cliente.nombreCliente, cliente.apellidosCliente,cliente.tipo FROM cliente");*/
-$resultado=$conexion->prepare("SELECT idCliente,nombreCliente, apellidosCliente,tipo FROM cliente");
+$resultado=$conexion->prepare("SELECT idCliente,nombreCliente, apellidosCliente,tipo FROM clientes");
 $resultado->execute();
 while ($fila = $resultado->fetch(PDO::FETCH_ASSOC))
 {

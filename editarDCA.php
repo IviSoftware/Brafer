@@ -1,8 +1,14 @@
 <?php
-if(!isset($_GET['idC'])){
-    header("Location: hola.html");
-}
 include_once 'datos/Conexion.php';
+session_start();
+if(!isset($_SESSION['nombre_usuario'])){
+    header("Location: index.php");
+}else{
+    if($_SESSION['nombre_usuario']!="Admin"){
+        header("Location: index.php");
+    }else{
+    }
+}
 $conexionC=conectar();
 $idC=$_GET['idC'];
 $resultado=$conexionC->prepare("SELECT idCategoria, categoria FROM categorias WHERE idCategoria=?;");

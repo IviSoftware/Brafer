@@ -1,5 +1,15 @@
 <?php
 include_once 'datos/Conexion.php';
+session_start();
+if(!isset($_SESSION['nombre_usuario'])){
+    header("Location: index.php");
+}else{
+    if($_SESSION['nombre_usuario']!="Gestor"){
+        header("Location: index.php");
+    }else{
+    }
+}
+
 $conexionCate=conectar();
 $conexionMate=conectar();
 $query=$conexionCate->prepare("SELECT idCategoria, categoria FROM categorias");
@@ -65,7 +75,7 @@ $querys->execute();
     <!--Empieza el boton-->
     <h1 style="text-align: center;">Productos</h1>
     <div class="containerBoxClientes">
-        <div class="BraferBlue , BraferBlueDiv" id="info"><a href="#" class="aBraferBlue">Ver inventario completo</a></div>
+        <div class="BraferBlue , BraferBlueDiv" id="info"><a href="tablaPG.php" class="aBraferBlue">Ver inventario completo</a></div>
         <div class="BraferBlue , BraferBlueDiv" id="CM"><a href="CMG.php" class="aBraferBlue">Agregar Categoria/Material</a></div>
     </div>
     <!--Termina el boton-->
@@ -73,8 +83,8 @@ $querys->execute();
     <!--Empieza formulario-->
     <section class="formu">
         <h3>Ingresar Producto</h3>
-    <form method="POST" action="insertarP.php" id="frmP" enctype="multipart/form-data">
-    <td><input type="text" class="controls" name="txtProducto" placeholder="Nombre del producto" id="nom"></td>
+    <form method="POST" id="frmP" name="frmP" >
+    <td><input type="text" class="controls" name="producto" placeholder="Nombre del producto" id="nom"></td>
         <td><input type="text" class="controls" name="txtCodigo" placeholder="Codigo de barras" id="cod"></td>
         <td><label for="cate" id="cates">Categoria</label>
         <select name="idC" id="cate">
@@ -100,8 +110,6 @@ $querys->execute();
             ?>
         </select></td>
         <td><input type="text" class="controls" name="txtPrecio" placeholder="Precio del producto" id="pre"></td>
-        <td><label type="text">Seleccione una imagen</label></td>
-        <td><input type="file" class="controls" name="txtImage" id="ima"></td>
         <input type="submit" value="Registrar Producto" class="boton" name="registrar" id="btnRegistrar">
     </form>
     </section>
@@ -187,6 +195,25 @@ $querys->execute();
             return false;
         });         
     });
+</script>
+<script type="text/javascript"> 
+    $(document).on("click", "#delete", function() {
+        if(confirm("¿Esta seguro de eliminar el producto?")){
+            var id=$(this).data("id");
+            $.ajax({
+                type:"POST",
+                url:"eliminarProducto.php",
+                data: {id: id,},
+                success: function(e){
+                    if(e==1){
+                        alert("Producto eliminado");
+                    }else if(e==2){
+                        alert("Error en la eliminación");
+                    }
+                }
+            });
+        }
+   });
 </script>
 <script type="text/javascript"> 
     $(document).on("click", "#add", function() {

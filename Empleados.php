@@ -59,7 +59,6 @@
     <h1 style="text-align: center;">Empleados</h1>
     <div class="containerBoxClientes">
         <div class="BraferBlue , BraferBlueDiv" id="info"><a href="tablaE.php" class="aBraferBlue">Ver información completa</a></div>
-        <div class="BraferBlue , BraferBlueDiv" id="acre"><a href="#" class="aBraferBlue">Ingresar Usuario</a></div>
     </div>
     <!--Termina el boton-->
    
@@ -84,7 +83,7 @@
             <tr class="active" style="width:900px">
                 <th style="width:70px" scope="col">ID</th>
                 <th style="width:190px" scope="col">Nombre</th>
-                <th style="width:209px" scope="col">Apellidos</th>
+                <th style="width:220px" scope="col">Apellidos</th>
                 <th style="width:120px" scope="col">Puesto</th>
                 <th style="width:90px" scope="col">Editar</th>
                 <th style="width:139px" scope="col">Eliminar</th>
@@ -108,7 +107,7 @@
                     if(e==1){
                         alert("Empleado registrado");
                     }else if(e==2){
-                        alert("Debe llenar todos los campos");
+                        alert("Error ");
                     }else if(e==3){
                         alert("Debe llenar todos los campos")
                     }

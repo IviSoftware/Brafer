@@ -140,18 +140,19 @@ td{
     height: 39px;
 }
 #delete{
-    background-color: red;
-    color: white;
+    background-color:white;
+    color:red;
     margin-left: 10px;
     margin-top: -40px;
     height: 28px;
+    border:none;
 }
 #acre{
     margin-top: -110px;
     margin-left: -110px;
 }
 #info{
-    margin-left: 100px;
+    margin-left: -70px;
 }
 #tipos{
     margin-left: 30px;

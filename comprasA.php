@@ -1,5 +1,14 @@
 <?php
 include_once 'datos/Conexion.php';
+session_start();
+if(!isset($_SESSION['nombre_usuario'])){
+    header("Location: index.php");
+}else{
+    if($_SESSION['nombre_usuario']!="Admin"){
+        header("Location: index.php");
+    }else{
+    }
+}
 $conexionP=conectar();
 $conexionM=conectar();
 $query=$conexionP->prepare("SELECT idProveedor, proveedor FROM proveedores");
@@ -29,7 +38,7 @@ $querys->execute();
 		function tiempoReal()
 		{
 			var tabla = $.ajax({
-				url:'consultas/consultapureba.php',
+				url:'consultas/consultaCom.php',
 				dataType:'text',
 				async:false
 			}).responseText;
@@ -70,9 +79,9 @@ $querys->execute();
    
     <section class="formuC">
         <h3>Ingresar Compra</h3>
-    <form method="POST" action="insertarV.php" id="frmV">
+    <form method="POST" action="insertarCom.php" id="frmC">
         <td><label for="cate" id="cates">Proveedor</label>
-            <select name="idC" id="cate">
+            <select name="idP" id="cate">
                 <?php
                     while ($fila = $query->fetch(PDO::FETCH_ASSOC))
                     {
@@ -83,7 +92,7 @@ $querys->execute();
                 ?>
     </select></td>
     <td><label for="mate" id="mates">Material</label>
-        <select name="idC" id="mate">
+        <select name="idM" id="mate">
             <?php
                 while ($fila = $querys->fetch(PDO::FETCH_ASSOC))
                 {
@@ -93,8 +102,7 @@ $querys->execute();
                 }
             ?>
     </select></td>
-    <td><input type="text" class="control" name="txtPrecio" placeholder="Precio del material c/u" id="pre"></td>
-    <td><input type="text" class="control" name="txtCantidad" placeholder="Cantidad de material" id="can"></td>
+    <td><input type="text" class="control" name="txtCan" placeholder="Cantidad de material c/u" id="can"></td>
     <input type="submit" value="Registrar compra" class="boton" name="registrar" id="btnRegistrar">
     </form>
     </section>
@@ -103,18 +111,41 @@ $querys->execute();
     <table class="table" style="font-size:17px; margin-top:-1%;">
         <thead>
             <tr class="active" style="width:350px">
-                <th style="width:50px" scope="col">ID</th>
-            <th style="width:140px" scope="col">Proveedor</th>
+                <th style="width:100px" scope="col">ID</th>
+            <th style="width:160px" scope="col">Proveedor</th>
             <th style="width:130px" scope="col">Material</th>
-            <th style="width:170px" scope="col">Precio material</th>
+            <th style="width:150px" scope="col">Precio material</th>
             <th style="width:120px" scope="col">Cantidad</th>
             <th style="width:95px" scope="col">Total</th>
             <th style="width:160px" scope="col">Fecha captura</th>
             </tr>
         </thead>
-        <tbody id="miTabla1">
+        <tbody id="miTabla">
         </tbody>
     </table>
     </section>
 </body>
 </html>
+<script type="text/javascript"> 
+    $(document).ready(function(){
+        $('#btnRegistrar').click(function(){
+        var datos=$("#frmC").serialize();
+            $.ajax({
+                type:"POST",
+                url:"insertarCom.php",
+                data: datos,
+                success: function(e){
+                    if(e==1){
+                        alert("Compra registrada");
+                        $('#frmV')[0].reset();
+                    }else if(e==2){
+                        alert("Error en los datos");
+                    }else if(e==3){
+                        alert("Cliente ya registrado anteriormente");
+                    }
+                }
+            });
+            return false;
+        });
+    });         
+</script>

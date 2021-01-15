@@ -1,8 +1,17 @@
 <?php
 include_once 'datos/Conexion.php';
+session_start();
+if(!isset($_SESSION['nombre_usuario'])){
+    header("Location: index.php");
+}else{
+    if($_SESSION['nombre_usuario']!="Receptor"){
+        header("Location: index.php");
+    }else{
+    }
+}
 $conexionC=conectar();
 $conexionP=conectar();
-$query=$conexionC->prepare("SELECT idCliente, nombreCliente, apellidosCliente FROM cliente");
+$query=$conexionC->prepare("SELECT idCliente, nombreCliente, apellidosCliente FROM clientes");
 $query->execute();
 $querys=$conexionP->prepare("SELECT idProducto, nombreProducto FROM productos");
 $querys->execute();
@@ -29,12 +38,12 @@ $querys->execute();
 		function tiempoReal()
 		{
 			var tabla = $.ajax({
-				url:'consultas/consultapureba.php',
+				url:'consultas/consultaVr.php',
 				dataType:'text',
 				async:false
 			}).responseText;
 
-			document.getElementById("miTabla").innerHTML = tabla;
+			document.getElementById("miTabla1").innerHTML = tabla;
 		}
 		setInterval(tiempoReal, 1000);
 	</script>
@@ -78,7 +87,7 @@ $querys->execute();
                 ?>
     </select></td>
     <td><label for="mate" id="mates">Producto</label>
-        <select name="idC" id="mate">
+        <select name="idP" id="mate">
             <?php
                 while ($fila = $querys->fetch(PDO::FETCH_ASSOC))
                 {
@@ -88,7 +97,7 @@ $querys->execute();
                 }
             ?>
     </select></td>
-    <td><input type="text" class="control" name="txtCategoria" placeholder="Cantidad de productos" id="cat"></td>
+    <td><input type="text" class="control" name="txtC" placeholder="Cantidad de productos" id="cat"></td>
     <input type="submit" value="Registrar venta" class="boton" name="registrar" id="btnRegistrar">
     </form>
     </section>
@@ -96,13 +105,13 @@ $querys->execute();
     <section id="miTablas1">
     <table class="table" style="font-size:17px; margin-top:-1%;">
         <thead>
-        <tr class="active" style="width:350px">
+            <tr class="active" style="width:350px">
                 <th style="width:120px" scope="col">ID compra</th>
-            <th style="width:130px" scope="col">Nombre</th>
-            <th style="width:140px" scope="col">Apellidos</th>
-            <th style="width:130px" scope="col">Producto</th>
+            <th style="width:150px" scope="col">Nombre</th>
+            <th style="width:160px" scope="col">Apellidos</th>
+            <th style="width:140px" scope="col">Producto</th>
             <th style="width:100px" scope="col">Precio</th>
-            <th style="width:130px" scope="col">Cantidad</th>
+            <th style="width:110px" scope="col">Cantidad</th>
             <th style="width:110px" scope="col">Total</th>
             <th style="width:160px" scope="col">Fecha captura</th>
             </tr>
@@ -113,3 +122,27 @@ $querys->execute();
     </section>
 </body>
 </html>
+<script type="text/javascript"> 
+    $(document).ready(function(){
+        $('#btnRegistrar').click(function(){
+        var datos=$("#frmV").serialize();
+            $.ajax({
+                type:"POST",
+                url:"insertarV.php",
+                data: datos,
+                success: function(e){
+                    if(e==1){
+                        alert("Venta registrada");
+                        $('#frmV')[0].reset();
+                    }else if(e==2){
+                        alert("Error en los datos");
+                    }else if(e==3){
+                        alert("Cliente ya registrado anteriormente");
+                    }
+                }
+            });
+            return false;
+        });
+    });         
+</script>
+ 

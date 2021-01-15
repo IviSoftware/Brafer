@@ -1,8 +1,14 @@
 <?php
-if(!isset($_GET['id'])){
-    header("Location:hola.html");
-}
 include_once 'datos/Conexion.php';
+session_start();
+if(!isset($_SESSION['nombre_usuario'])){
+    header("Location: index.php");
+}else{
+    if($_SESSION['nombre_usuario']!="Admin"){
+        header("Location: index.php");
+    }else{
+    }
+}
 $conexion=conectar();
 $id=$_GET['id'];
 $resultado=$conexion->prepare("SELECT clientes.idCliente, clientes.nombreCliente,clientes.apellidosCliente,clientes.direccionCliente,clientes.fechaNacimiento,clientes.telefono,clientes.email,clientes.CURP,clientes.tipo,estado.Estado,municipio.Municipio from clientes,estado,municipio WHERE clientes.idCliente=?;");

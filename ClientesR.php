@@ -1,3 +1,15 @@
+<?php
+include_once 'datos/Conexion.php';
+session_start();
+if(!isset($_SESSION['nombre_usuario'])){
+    header("Location: index.php");
+}else{
+    if($_SESSION['nombre_usuario']!="Receptor"){
+        header("Location: index.php");
+    }else{
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
