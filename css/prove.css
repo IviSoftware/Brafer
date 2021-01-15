@@ -1,0 +1,165 @@
+.containerBoxClientes{
+    width: 320px;
+    height: 50px;
+    /*margin: auto;*/
+    margin-left: 1250px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.BraferBlue{
+    width: 200px;
+}
+
+@media(max-width:400px){
+    .containerBoxClientes{
+        justify-content: center;
+    }
+}
+
+/*Empieza css de nuevo cliente*/
+.formNewCliente{
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.formNewCliente input{
+    margin-bottom: 20px;
+}
+
+
+.containerBoxClienteTwo{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.botonesClienteAgregado{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+h3{
+    font-size: 30px;
+    margin-top: -5px;
+}
+
+.boton{
+    width: 100%;
+    margin-right: 100px;
+    border: none;
+    padding: 12px;
+    background: var(--WoodWhite);
+    color: var(--SpaceBlue);
+    font-size: 22px;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0,0,0.3);
+    float: left;
+    margin-top: 13px;
+}
+
+.formu{
+    margin-left: 250px;
+    width: 500px;
+    padding: 30px;
+    margin-top: -35px;
+    height: 685px;
+    border-radius: 10px;
+    background-color:  var(--SpaceBlue);
+    color: var(--WoodWhite);
+}
+.controls, .controls1{
+    margin-top: 16px;
+    width: 100%;
+    height: 45px;
+    padding: 8px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+    font-size: 15px;
+    color:black;
+    border: solid 1px #ccc;
+}
+.buscar{
+    margin-left: 1430px;
+    margin-top: -37px;
+}
+.s{
+    height: 30px;
+    margin-top: -15px;
+    border-radius: 5px;
+}
+.search{
+    width: 90px;
+    height: 30px;
+    margin-top: -10px;
+    border-radius: 5px;
+    background-color:  var(--SpaceBlue);
+    color: var(--WoodWhite);
+}
+.search:hover{
+    background-color:  var(--WoodWhite);
+    color: var(--SpaceBlue);
+}
+.table tbody{
+    height: 298px;
+    overflow-y: auto;
+    width: 710px;
+}
+.table thead,
+.table tbody,
+.table td,
+.table th{
+    display: block;
+}
+.table tbody td,
+.table thead > tr >th{
+    float: left;
+    border-bottom-width: 0;
+}
+#miTablas{
+    margin-left: 950px;
+    margin-top: -680px;
+}
+th{
+    background-color: var(--SpaceBlue);
+    color: var(--WoodWhite);
+}
+td{
+    padding: 3px;
+}
+#edit{
+    background-color: white;
+    color:var(--SpaceBlue);
+    margin-left: -60px;
+    margin-top: -10px;
+    height: 39px;
+}
+#delete{
+    background-color: red;
+    color: white;
+    margin-left: 10px;
+    margin-top: -40px;
+    height: 39px;
+}
+#acre{
+    margin-top: -110px;
+    margin-left: -110px;
+}
+#info{
+    margin-left: 100px;
+}
+
+#mate{
+    margin-left: 40px;
+    font-size: 20px;
+    width: 200px;
+}
+#mates{
+    font-size: 25px;
+}
+/*Acaba css de nuevo cliente*/

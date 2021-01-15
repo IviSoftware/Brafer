@@ -1,7 +1,7 @@
 <?php
 function conectar(){
     $servidor='localhost';
-    $bd='hola';
+    $bd='muebles';
     $user='root';
     $pass='123abc';
     try{
@@ -13,17 +13,21 @@ function conectar(){
 }
 $conexion=conectar();
 /*$resultado=$conexion->prepare("SELECT cliente.idCliente, cliente.nombreCliente, cliente.apellidosCliente,cliente.tipo FROM cliente");*/
-$resultado=$conexion->prepare("SELECT idCliente,nombreCliente, apellidosCliente,tipo FROM cliente");
+$resultado=$conexion->prepare("SELECT idProducto, nombreProducto, precio, existencias FROM productos");
 $resultado->execute();
 while ($fila = $resultado->fetch(PDO::FETCH_ASSOC))
 {
 	echo'<tr style="width:900px">
-	 <td style="width:71px">'.$fila['idCliente'].'</td>
-	 <td style="width:190px">'.$fila['nombreCliente'].'</td>
-	 <td style="width:210px">'.$fila['apellidosCliente'].'</td>
-     <td style="width:170px">'.$fila['tipo'].'</td>
-     <td style="width:15px"><a href="editarCliente.php?id='.$fila['idCliente'].'" id="edit"><i class="fas fa-edit"></i></a></td>
-     <td style="width:40px"><a href="eliminarCliente.php?id='.$fila['idCliente'].'" id="delete"><i class="far fa-trash-alt"></i></a></td>
+	 <td style="width:71px">'.$fila['idProducto'].'</td>
+	 <td style="width:220px">'.$fila['nombreProducto'].'</td>
+	 <td style="width:155px">'.$fila['precio'].'</td>
+     <td style="width:170px">'.$fila['existencias'].'</td>
+     <td style="width:21px"><a href="editarProducto.php?idP='.$fila['idProducto'].'" id="edit"><i class="fas fa-edit"></i></a></td>
+     <td style="width:107px"><button data-id='.$fila['idProducto'].' id="delete"><i class="far fa-trash-alt"></i></button></td>
+     <td style="width:95px"><button data-id='.$fila['idProducto'].' id="buy"><i class="fas fa-shopping-cart"></i></button></td>
+     <td style="width:40px"><button data-id='.$fila['idProducto'].' id="add"><i class="fas fa-plus-circle"></i></button></td>
 	 </tr>';
 }
+// <td style="width:15px"><a href="editarProducto.php?idP='.$fila['idProducto'].'" id="edit"><i class="fas fa-edit"></i></a></td>
+//<td style="width:40px"><a href="eliminarProducto.php?idP='.$fila['idProducto'].'" id="delete"><i class="far fa-trash-alt"></i></a></td>
 ?>

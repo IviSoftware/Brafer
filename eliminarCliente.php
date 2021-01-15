@@ -1,13 +1,10 @@
 <?php
-if(!isset($_GET['id'])){
-    header("Location:hola.html");
-}
-$codigo=$_GET['id'];
+$codigo=$_POST['id'];
 include_once 'datos/Conexion.php';
 $conexion=conectar();
-$query=$conexion->prepare("DELETE FROM cliente WHERE idCliente = ?;");
+$query=$conexion->prepare("DELETE FROM clientes WHERE idCliente = ?;");
 $resultado=$query->execute([$codigo]);
 if($resultado===true){
-header("Location:ClientesA.php");
+    echo '1';
 }
 ?>

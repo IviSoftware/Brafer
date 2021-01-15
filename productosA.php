@@ -1,3 +1,12 @@
+<?php
+include_once 'datos/Conexion.php';
+$conexionCate=conectar();
+$conexionMate=conectar();
+$query=$conexionCate->prepare("SELECT idCategoria, categoria FROM categorias");
+$query->execute();
+$querys=$conexionMate->prepare("SELECT idMaterial, material FROM material");
+$querys->execute();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -5,6 +14,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+    <script src="Scripts/jquery-3.5.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/5725e9fd23.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/menu.css">
@@ -14,13 +25,11 @@
     <link rel="shortcut icon" href="Iconos/Imagen-logo.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/productoA.css">
     <link rel="stylesheet" href="css/container.css">
-    <script src="Scripts/jquery-3.5.1.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script type="text/javascript">
 		function tiempoReal()
 		{
 			var tabla = $.ajax({
-				url:'consultas/consultapureba.php',
+				url:'consultas/consultaPA.php',
 				dataType:'text',
 				async:false
 			}).responseText;
@@ -29,28 +38,6 @@
 		}
 		setInterval(tiempoReal, 1000);
 		</script>
-    <script type="text/javascript">
-        (obtener_cliente());
-        function obtener_cliente(clientes){
-        $.ajax({
-        url:"searchs/buscarCliente.php",
-        type: 'POST',
-        datatype:'text',
-        data:{clientes,clientes},
-        })
-    .done(function(resultado){
-        $("#miTabla").html(resultado);
-        })
-        }
-    $(document).on('keyup', '#search', function(){
-    var valorBusqueda=$(this).val();
-    if(valorBusqueda!=""){
-        obtener_cliente(valorBusqueda);
-    }else{
-        obtener_cliente();
-    }
-    });
-    </script>
     <title>Menu | Brafer</title>
 </head>
 <body>
@@ -61,13 +48,14 @@
     
         <nav id="site-nav" class="site-nav">
             <ul>
-                <li><a href="Inventario.html">Inventario</a>
-                <li><a href="Ventas.html">Ventas</a>
-                <li><a href="Clientes.html">Clientes</a>
-                <li><a href="Proveedores.html">Proveedores</a>
-                <li><a href="Acreedores.html">Compras</a>
-                <li><a href="Socios.html">Empleados</a>
-                <li><a href="Cuenta.html">Cuenta</a>
+            <li><a href="productosA.php">Inventario</a>
+                <li><a href="VentasA.php">Ventas</a>
+                <li><a href="ClientesA.php">Clientes</a>
+                <li><a href="ProveedorA.php">Proveedores</a>
+                <li><a href="ComprasA.php">Compras</a>
+                <li><a href="Empleados.php">Empleados</a>
+                <li><a href="CuentaA.php">Cuenta</a>
+                <li><a href="Cuenta.html">Catalogo</a>
             </ul>
         </nav>
 
@@ -79,26 +67,42 @@
     <!--Empieza el boton-->
     <h1 style="text-align: center;">Productos</h1>
     <div class="containerBoxClientes">
-        <div class="BraferBlue , BraferBlueDiv" id="info"><a href="#" class="aBraferBlue">Ver inventario completo</a></div>
-        <div class="BraferBlue , BraferBlueDiv" id="acre"><a href="#" class="aBraferBlue">Agregar categoria</a></div>
+        <div class="BraferBlue , BraferBlueDiv" id="info"><a href="tablaPA.php" class="aBraferBlue">Ver inventario completo</a></div>
+        <div class="BraferBlue , BraferBlueDiv" id="CM"><a href="CMA.php" class="aBraferBlue">Agregar Categoria/Material</a></div>
     </div>
     <!--Termina el boton-->
-    <div class="buscar">
-        <input type="text" id="search" class="s" placeholder="Buscar cliente"><i class="fas fa-search"></i></button>
-    </div>
     
     <!--Empieza formulario-->
     <section class="formu">
-        <h3>Ingresar cliente</h3>
-    <form method="POST" action="insertarP.php" id="frmProduct">
-    <td><input type="text" class="controls" name="txtProducto" placeholder="Nombre del producto" id="nom"></td>
+        <h3>Ingresar Producto</h3>
+    <form method="POST" id="frmP" name="frmP" >
+    <td><input type="text" class="controls" name="producto" placeholder="Nombre del producto" id="nom"></td>
         <td><input type="text" class="controls" name="txtCodigo" placeholder="Codigo de barras" id="cod"></td>
-        <td><input type="text" class="controls" name="txtDescr" placeholder="Descripción del producto" id="des"></td>
-        <td><input type="text" class="controls1" name="precio" placeholder="Precio del producto" id="pre"></td>
-        <td><input type="text" class="controls" name="txtCatego" placeholder="Categoria" id="cat"></td>
-        <td><input type="text" class="controls" name="txtMaterial" placeholder="Material" id="mat"></td>
-        <td><input type="text" class="controls" name="txtImage" placeholder="Imagen" id="ima"></td>
-        <input type="submit" value="Registrar cliente" class="boton" name="registrar" id="btnGuardar">
+        <td><label for="cate" id="cates">Categoria</label>
+        <select name="idC" id="cate">
+            <?php
+                while ($fila = $query->fetch(PDO::FETCH_ASSOC))
+                {
+            ?>
+            <option value="<?php echo $fila['idCategoria'] ?>"><?php echo $fila['categoria'] ?></option>
+            <?php
+                }
+            ?>
+        </select></td>
+        <td><textarea class="controls1" name="txtDescr" placeholder="Descripción del producto" id="des"></textarea></td>
+        <td><label for="mate" id="mates">Material</label>
+        <select name="idM" id="mate">
+        <?php
+                while ($filas = $querys->fetch(PDO::FETCH_ASSOC))
+                {
+            ?>
+            <option value="<?php echo $filas['idMaterial'] ?>"><?php echo $filas['material'] ?></option>
+            <?php
+                }
+            ?>
+        </select></td>
+        <td><input type="text" class="controls" name="txtPrecio" placeholder="Precio del producto" id="pre"></td>
+        <input type="submit" value="Registrar Producto" class="boton" name="registrar" id="btnRegistrar">
     </form>
     </section>
     <!--Empieza tabla-->
@@ -107,14 +111,17 @@
         <thead>
             <tr class="active" style="width:900px">
                 <th style="width:70px" scope="col">ID</th>
-                <th style="width:190px" scope="col">Nombre</th>
-                <th style="width:213px" scope="col">Apellidos</th>
-                <th style="width:95px" scope="col">Tipo</th>
+                <th style="width:221px" scope="col">Producto</th>
+                <th style="width:120px" scope="col">Precio</th>
+                <th style="width:130px" scope="col">Existencias</th>
                 <th style="width:90px" scope="col">Editar</th>
-                <th style="width:139px" scope="col">Eliminar</th>
+                <th style="width:110px" scope="col">Eliminar</th>
+                <th style="width:90px" scope="col">Venta</th>
+                <th style="width:139px" scope="col">Añadir</th>
             </tr>
         </thead>
         <tbody id="miTabla">
+    
         </tbody>
     </section>
     <script src="Scripts/app.js"></script>
@@ -122,23 +129,110 @@
 </html>
 <script type="text/javascript"> 
     $(document).ready(function(){
-        $('#btnGuardar').click(function(){
-                var datos=$("#frmCliente").serialize();
-                $.ajax({
-                    type:"POST",
-                    url:"insertarP.php",
-                    data: datos,
-                    success: function(e){
-                    if(e==1){
-                        alert("Cliente registrado");
-                    }else if(e==2){
+        $('#btnRegistrar').click(function(){
+            var prod=$('#nom').val();
+            var cod=$('#cod').val();
+            var des=$('#des').val();
+            var pre=$('#pre').val();
+            var reg= /^([A-Za-z ñÑáéíóúÁÉÍÓÚ\d\s]{3,25})+$/i;
+            var c= /^([0-9]{12})+$/;
+            var p= /^([0-9]{1,9})+$/;
+            var com= /^([A-Za-z ñÑáéíóúÁÉÍÓÚ 0-9]{8,60})+$/i;
+            if($('#nom').val()!=""){
+                if($('#cod').val()!=""){
+                    if($('#des').val()!=""){
+                        if($('#pre').val()!=""){
+                            if(reg.test(prod)){
+                                if(c.test(cod)){
+                                    if(com.test(des)){
+                                        if(p.test(pre)){
+                                            var datos=$("#frmP").serialize();
+                                            
+                                            $.ajax({
+                                                type:"POST",
+                                                url:"insertarP.php",
+                                                data: datos,
+                                                success: function(e){
+                                                    if(e==1){
+                                                        alert("Producto registrado");
+                                                        $('#frmP')[0].reset();
+                                                    }else if(e==2){
+                                                        alert("Error en los datos");
+                                                    }else if(e==3){
+                                                        alert("Producto ya registrado anteriormente");
+                                                    }
+                                                }
+                                            });
+                                        }else{
+                                            alert("Debe ingresar solo números en precio");
+                                        }
+                                    }else{
+                                        alert("Debe ingresar solo letras y números en descripción");
+                                    }
+                                }else{
+                                    alert("Debe ingresar solo números en codigo de barras y deben ser 12 digitos");
+                                }
+                            }else{
+                                alert("Debe ingresar solo letras en nombre del producto");
+                            }
+                        }else{
+                            alert("Debe llenar todos los campos");
+                        }
+                    }else{
                         alert("Debe llenar todos los campos");
-                    }else if(e==3){
-                        alert("Debe llenar todos los campos")
                     }
-                    }
-                });
-                return false;
+                }else{
+                    alert("Debe llenar todos los campos");
+                }
+            }else{
+                alert("Debe llenar todos los campos");
+            }  
+            return false;
         });         
     });
+</script>
+<script type="text/javascript"> 
+    $(document).on("click", "#delete", function() {
+        if(confirm("¿Esta seguro de eliminar el producto?")){
+            var id=$(this).data("id");
+            $.ajax({
+                type:"POST",
+                url:"eliminarProducto.php",
+                data: {id: id,},
+                success: function(e){
+                    if(e==1){
+                        alert("Producto eliminado");
+                    }else if(e==2){
+                        alert("Error en la eliminación");
+                    }
+                }
+            });
+        }
+   });
+</script>
+<script type="text/javascript"> 
+    $(document).on("click", "#add", function() {
+        var id=$(this).data("id");
+        $.ajax({
+            type:"POST",
+            url:"addP.php",
+            data: {id: id,},
+            success: function(){
+                
+            }
+        });
+   });
+</script>
+<script type="text/javascript"> 
+    $(document).on("click", "#buy", function() {
+        var id=$(this).data("id");
+        $.ajax({
+            type:"POST",
+            url:"buyP.php",
+            data: {id: id,},
+            success: function(){
+                
+            }
+        });
+   });
 </script>

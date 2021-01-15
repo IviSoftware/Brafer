@@ -1,7 +1,7 @@
 <?php
 function conectar(){
     $servidor='localhost';
-    $bd='hola';
+    $bd='muebles';
     $user='root';
     $pass='123abc';
     try{
@@ -22,7 +22,7 @@ while ($fila = $resultado->fetch(PDO::FETCH_ASSOC))
 	 <td style="width:190px">'.$fila['nombreCliente'].'</td>
 	 <td style="width:210px">'.$fila['apellidosCliente'].'</td>
      <td style="width:170px">'.$fila['tipo'].'</td>
-     <td style="width:15px"><a href="editarCliente.php?id='.$fila['idCliente'].'" id="edit"><i class="fas fa-edit"></i></a></td>
+     <td style="width:15px"><a href="editarClienteR.php?id='.$fila['idCliente'].'" id="edit"><i class="fas fa-edit"></i></a></td>
 	 </tr>';
 }
 ?>

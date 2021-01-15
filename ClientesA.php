@@ -28,29 +28,7 @@
 			document.getElementById("miTabla").innerHTML = tabla;
 		}
 		setInterval(tiempoReal, 1000);
-		</script>
-    <script type="text/javascript">
-        (obtener_cliente());
-        function obtener_cliente(clientes){
-        $.ajax({
-        url:"searchs/buscarCliente.php",
-        type: 'POST',
-        datatype:'text',
-        data:{clientes,clientes},
-        })
-    .done(function(resultado){
-        $("#miTabla").html(resultado);
-        })
-        }
-    $(document).on('keyup', '#search', function(){
-    var valorBusqueda=$(this).val();
-    if(valorBusqueda!=""){
-        obtener_cliente(valorBusqueda);
-    }else{
-        obtener_cliente();
-    }
-    });
-    </script>
+	</script>
     <title>Menu | Brafer</title>
 </head>
 <body>
@@ -61,13 +39,14 @@
     
         <nav id="site-nav" class="site-nav">
             <ul>
-                <li><a href="Inventario.html">Inventario</a>
-                <li><a href="Ventas.html">Ventas</a>
-                <li><a href="Clientes.html">Clientes</a>
-                <li><a href="Proveedores.html">Proveedores</a>
-                <li><a href="Acreedores.html">Compras</a>
-                <li><a href="Socios.html">Empleados</a>
-                <li><a href="Cuenta.html">Cuenta</a>
+                <li><a href="productosA.php">Inventario</a>
+                <li><a href="VentasA.php">Ventas</a>
+                <li><a href="ClientesA.php">Clientes</a>
+                <li><a href="ProveedorA.php">Proveedores</a>
+                <li><a href="ComprasA.php">Compras</a>
+                <li><a href="Empleados.php">Empleados</a>
+                <li><a href="CuentaA.php">Cuenta</a>
+                <li><a href="Cuenta.html">Catalogo</a>
             </ul>
         </nav>
 
@@ -79,18 +58,15 @@
     <!--Empieza el boton-->
     <h1 style="text-align: center;">Clientes</h1>
     <div class="containerBoxClientes">
-        <div class="BraferBlue , BraferBlueDiv" id="info"><a href="#" class="aBraferBlue">Ver información completa</a></div>
-        <div class="BraferBlue , BraferBlueDiv" id="acre"><a href="#" class="aBraferBlue">Acredores</a></div>
+        <div class="BraferBlue , BraferBlueDiv" id="info"><a href="tablaCA.php" class="aBraferBlue">Ver información completa</a></div>
+        <div class="BraferBlue , BraferBlueDiv" id="acre"><a href="#" class="aBraferBlue">Acreedores</a></div>
     </div>
     <!--Termina el boton-->
-    <div class="buscar">
-        <input type="text" id="search" class="s" placeholder="Buscar cliente"><i class="fas fa-search"></i></button>
-    </div>
-    
+   
     <!--Empieza formulario-->
     <section class="formu">
         <h3>Ingresar cliente</h3>
-    <form method="POST" action="insertar.php" id="frmCliente">
+    <form method="POST" id="frmCliente" action="insertar.php">
     <td><input type="text" class="controls" name="txtNombre" placeholder="Nombre del cliente" id="nom"></td>
         <td><input type="text" class="controls" name="txtApellido" placeholder="Apellidos del cliente" id="ape"></td>
         <td><input type="text" class="controls" name="txtCurp" placeholder="CURP" id="cur"></td>
@@ -123,29 +99,135 @@
         <tbody id="miTabla">
         </tbody>
     </section>
-    
     <script src="Scripts/app.js"></script>
 </body>
 </html>
 <script type="text/javascript"> 
     $(document).ready(function(){
         $('#btnGuardar').click(function(){
-                var datos=$("#frmCliente").serialize();
-                $.ajax({
-                    type:"POST",
-                    url:"insertar.php",
-                    data: datos,
-                    success: function(e){
-                    if(e==1){
-                        alert("Cliente registrado");
-                    }else if(e==2){
-                        alert("Debe llenar todos los campos");
-                    }else if(e==3){
-                        alert("Debe llenar todos los campos")
+            var name=$('#nom').val();
+            var ln=$('#ape').val();
+            var cur=$('#cur').val();
+            var dir=$('#dir').val();
+            var est=$('#est').val();
+            var mun=$('#mun').val();
+            var tel=$('#tel').val();
+            var ema=$('#ema').val();
+            var fec=$('#fec').val();
+            var reg= /^([A-Za-z ñÑáéíóúÁÉÍÓÚ\d\s]{3,25})+$/i;
+            var num= /^([0-9]{9,13})+$/;
+            var com= /^([a-zA-Z ñáéíóúÑÁÉÍÓÚ\d\s0-9-]{8,90})+$/i;
+            var cor= /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            var may= /^([A-Z 0-9]{18})+$/i;
+            var fe= /^([0-9]{4})*([\-])*([0-9]{2})*([\-])*([0-9]{2})+$/;
+            if($('#nom').val()!=""){
+                if($('#ape').val()!=""){
+                    if($('#cur').val()!=""){
+                        if($('#dir').val()!=""){
+                            if($('#est').val()!=""){
+                                if($('#mun').val()!=""){
+                                    if($('#tel').val()!=""){
+                                        if($('#ema').val()!=""){
+                                            if($('#fec').val()!=""){
+                                                if(reg.test(name)){
+                                                    if(reg.test(ln)){
+                                                        if(may.test(cur)){
+                                                            if(com.test(dir)){
+                                                                if(reg.test(est)){
+                                                                    if(reg.test(mun)){
+                                                                        if(num.test(tel)){
+                                                                            if(cor.test(ema)){
+                                                                                if(fe.test(fec)){
+                                                                                    var datos=$("#frmCliente").serialize();
+                                                                                    $.ajax({
+                                                                                        type:"POST",
+                                                                                        url:"insertar.php",
+                                                                                        data: datos,
+                                                                                        success: function(e){
+                                                                                            if(e==1){
+                                                                                                alert("Cliente registrado");
+                                                                                                $('#frmCliente')[0].reset();
+                                                                                            }else if(e==2){
+                                                                                                alert("Error en los datos");
+                                                                                            }else if(e==3){
+                                                                                                alert("Cliente ya registrado anteriormente");
+                                                                                            }
+                                                                                        }
+                                                                                    });
+                                                                                }else{
+                                                                                    alert("Debe ingresar solo numeros y / en la fecha \nCon el formato año/mes/dia\nEjemplo: 2020/11/03");
+                                                                                }
+                                                                            }else{
+                                                                                alert("Debe ingresar un correo valido ejemplo@ejemplo.com");
+                                                                            }
+                                                                        }else{
+                                                                            alert("Debe ingresar solo números en telefono");
+                                                                        }
+                                                                    }else{
+                                                                        alert("Debe ingresar solo letras en el campo municipio");
+                                                                    }
+                                                                }else{
+                                                                    alert("Debe ingresar solo letras en el campo estado");
+                                                                }
+                                                            }else{
+                                                                alert("Solo son validos: letras, numeros y - en el campo dirección");
+                                                            }
+                                                        }else{
+                                                            alert("Debe ingresar solo MAYUSCULAS y números en el CURP \nDeben ser 18 digitos");
+                                                        }
+                                                    }else{
+                                                        alert("Debe ingresar solo letras en el campo apellidos");
+                                                    }
+                                                }else{
+                                                    alert("Debe ingresar solo letras en el campo nombre");
+                                                }
+                                            }else{
+                                                alert("Todos los campos deben estar llenos");
+                                            }
+                                        }else{
+                                            alert("Todos los campos deben estar llenos");
+                                        }
+                                    }else{
+                                        alert("Todos los campos deben estar llenos");
+                                    }
+                                }else{
+                                    alert("Todos los campos deben estar llenos");
+                                }
+                            }else{
+                                alert("Todos los campos deben estar llenos");
+                            }
+                        }else{
+                            alert("Todos los campos deben estar llenos");
+                        }    
+                    }else{
+                        alert("Todos los campos deben estar llenos");
                     }
-                    }
-                });
-                return false;
+                }else{
+                    alert("Todos los campos deben estar llenos");
+                }
+            }else{
+                alert("Todos los campos deben estar llenos");
+            }
+            return false;
         });         
     });
+</script>
+<script type="text/javascript"> 
+    $(document).on("click", "#delete", function() {
+        if(confirm("¿Esta seguro de eliminar el cliente?")){
+            var id=$(this).data("id");
+            $.ajax({
+                type:"POST",
+                url:"eliminarCliente.php",
+                data: {id: id,},
+                success: function(e){
+                    if(e==1){
+                        alert("Cliente eliminado");
+                    }else if(e==2){
+                        alert("Error en la eliminación");
+                    }
+                }
+            });
+        }
+   });
 </script>

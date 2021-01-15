@@ -1,7 +1,7 @@
 <?php
 function conectar(){
     $servidor='localhost';
-    $bd='hola';
+    $bd='muebles';
     $user='root';
     $pass='123abc';
     try{

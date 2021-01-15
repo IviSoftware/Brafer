@@ -1,7 +1,7 @@
 <?php
 function conectar(){
     $servidor='localhost';
-    $bd='hola';
+    $bd='muebles';
     $user='root';
     $pass='123abc';
     try{
@@ -13,7 +13,7 @@ function conectar(){
 }
 $conexion=conectar();
 /*$resultado=$conexion->prepare("SELECT cliente.idCliente, cliente.nombreCliente, cliente.apellidosCliente,cliente.tipo FROM cliente");*/
-$resultado=$conexion->prepare("SELECT idCliente,nombreCliente, apellidosCliente,tipo FROM cliente");
+$resultado=$conexion->prepare("SELECT idCliente,nombreCliente, apellidosCliente,tipo FROM clientes");
 $resultado->execute();
 while ($fila = $resultado->fetch(PDO::FETCH_ASSOC))
 {
@@ -23,7 +23,7 @@ while ($fila = $resultado->fetch(PDO::FETCH_ASSOC))
 	 <td style="width:210px">'.$fila['apellidosCliente'].'</td>
      <td style="width:170px">'.$fila['tipo'].'</td>
      <td style="width:15px"><a href="editarCliente.php?id='.$fila['idCliente'].'" id="edit"><i class="fas fa-edit"></i></a></td>
-     <td style="width:40px"><a href="eliminarCliente.php?id='.$fila['idCliente'].'" id="delete"><i class="far fa-trash-alt"></i></a></td>
+     <td style="width:40px"><button data-id='.$fila['idCliente'].' id="delete"><i class="far fa-trash-alt"></i></button></td>
 	 </tr>';
 }
 ?>

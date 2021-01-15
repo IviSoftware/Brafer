@@ -1,8 +1,10 @@
 .containerBoxClientes{
-
+    width: 320px;
+    height: 50px;
     /*margin: auto;*/
+    margin-left: 1250px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     margin-top: 20px;
@@ -42,10 +44,10 @@
     justify-content: space-around;
     flex-wrap: wrap;
 }
-/*h3{
+h3{
     font-size: 30px;
     margin-top: -5px;
-}*/
+}
 
 .boton{
     width: 100%;
@@ -104,7 +106,7 @@
     color: var(--SpaceBlue);
 }
 .table tbody{
-    height: 258px;
+    height: 298px;
     overflow-y: auto;
     width: 796px;
 }
@@ -138,11 +140,13 @@ td{
     height: 39px;
 }
 #delete{
-    background-color: red;
-    color: white;
+    background-color:white;
+    color:red;
     margin-left: 10px;
     margin-top: -40px;
-    height: 39px;
+    height: 88px;
+    width: 10px;
+    border: none;
 }
 #acre{
     margin-top: -110px;
@@ -153,6 +157,7 @@ td{
 }
 #tipos{
     margin-left: 30px;
+    font-size: 20px;
 }
 #tips{
     font-size: 25px;

@@ -1,0 +1,145 @@
+body{
+    /* background: #f0f8ea;*/
+     font-family: 'Roboto', sans-serif;
+ }
+ .container{
+     max-width: 800px;
+ 
+ }
+ header{
+     width: 100%;
+     height: auto;
+     background: var(--SpaceBlue);
+     color: var(--WoodWhite);
+     position: sticky;
+     top:0;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     margin-bottom: 20px;
+ }
+ 
+ header::after{
+     content: '';
+     clear: both;
+     display: block;
+ }
+ .logo{
+    
+     
+     margin: 10px;
+     margin-left: 95px;
+     
+ }
+ 
+ 
+ 
+ .site-nav{
+     top:100%;
+     right:-195px;
+     position: absolute;
+     color: var(--WoodWhite);
+     background: var(--SpaceBlue);
+     clip-path: circle(0px at top right);
+     transition: clip-path ease-in-out 700ms;
+ }
+ .site-nav-open{
+     clip-path: circle(150% at top right);
+ }
+ .site-nav ul{
+     margin: 0;
+     padding: 0;
+     list-style: none;
+ }
+ .site-nav li{
+     border-bottom: 1px solid #575766;
+ }
+ .site-nav li:last-child{
+     border-bottom: none;
+ }
+ .site-nav a{
+     color: var(--WoodWhite);
+     display: block;
+     padding: 2em 6em;
+     text-transform: uppercase;
+     text-decoration: none;
+ }
+ .site-nav a:hover,
+ .site-nav a:focus{
+     background: var(--SpaceBlueSelection);
+   
+ }
+ 
+ .site-nav--icon{
+     display: inline-block;
+     font-size: 1.5em;
+     margin-right: 1em;
+     width: 1.1em;
+     text-align: right;
+     color: rgba(255, 255, 255, .4);
+ }
+ 
+ .menu-toggle{
+    align-self: center;
+     padding: 1em;
+     position: absolute;
+     right: .5em;
+     
+ }
+ .menu-open .hamburger{
+     transform: rotate(45deg);
+ }
+ .menu-open .hamburger::before{
+     opacity: 0;
+ }
+ .menu-open .hamburger::after{
+     transform: translateY(-3px) rotate(-90deg);
+ }
+ .hamburger,
+ .hamburger::before,
+ .hamburger::after{
+     content: '';
+     display: block;
+     background: #ebebd3;
+     height: 3px;
+     width: 1.75em;
+     border-radius: 3px;
+     transition: all ease-in-out 500ms;
+ }
+ .hamburger::before{
+     transform: translateY(-6px);
+ }
+ .hamburger::after{
+     transform: translateY(3px);
+ }
+ 
+ @media (min-width:950px){
+   .menu-toggle{
+       display: none;
+   } 
+   .site-nav{
+       height: auto;
+       position: relative;
+       background: transparent;
+       float: right;
+       margin-right: 10px;
+       clip-path: initial;
+   } 
+   .site-nav li{
+       display: inline-block;
+       border: none;
+   }
+ 
+   .site-nav a{
+       padding: 0;
+       margin-left: 3em;
+   }
+   .site-nav--icon{
+       display: none;
+   }
+   .site-nav a:hover,
+   .site-nav a:focus{
+       background: transparent;
+   }
+ 
+ }

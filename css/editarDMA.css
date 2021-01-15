@@ -1,0 +1,146 @@
+.containerBoxClientes{
+    width: 320px;
+    height: 50px;
+    /*margin: auto;*/
+    margin-left: 1250px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.BraferBlue{
+    width: 220px;
+}
+
+@media(max-width:400px){
+    .containerBoxClientes{
+        justify-content: center;
+    }
+}
+
+/*Empieza css de nuevo cliente*/
+.formNewCliente{
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.formNewCliente input{
+    margin-bottom: 20px;
+}
+
+
+.containerBoxClienteTwo{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.botonesClienteAgregado{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+h3{
+    font-size: 30px;
+    margin-top: -5px;
+}
+
+.boton{
+    width: 100%;
+    margin-right: 100px;
+    border: none;
+    padding: 12px;
+    background: var(--WoodWhite);
+    color: var(--SpaceBlue);
+    font-size: 22px;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0,0,0.3);
+    float: left;
+    margin-top: 13px;
+}
+
+.formuM{
+    margin-left: 600px;
+    width: 500px;
+    padding: 30px;
+    margin-top: 100px;
+    height: 250px;
+    border-radius: 10px;
+    background-color:   var(--SpaceBlue);
+    color: var(--WoodWhite);
+}
+.controls, .controls1, .control{
+    margin-top: 15px;
+    width: 100%;
+    height: 45px;
+    padding: 8px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+    font-size: 15px;
+    color:black;
+    border: solid 1px #ccc;
+}
+
+/*#edit{
+    background-color: white;
+    color:var(--SpaceBlue);
+    margin-left: 225px;
+    margin-top: 1px;
+    height: 39px;
+}*/
+#edit{
+    background-color: white;
+    color:var(--SpaceBlue);
+}
+
+#acre{
+    margin-top: -110px;
+    margin-left: -110px;
+}
+#info{
+    margin-left: 100px;
+}
+#cate{
+    margin-left: 30px;
+    font-size: 20px;
+    width: 200px;
+}
+#cates{
+    font-size: 25px;
+}
+#mate{
+    margin-left: 40px;
+    font-size: 20px;
+    width: 200px;
+}
+#mates{
+    font-size: 25px;
+}
+textarea{
+    
+}
+.controls1{
+    height: 75px;
+    resize: none;
+}
+#im{
+    margin-top: 25px;
+}
+#CM{
+    margin-top: -110px;
+    margin-left: -130px;
+}
+.hC{
+    margin-top: 10px;
+    margin-left: 600px;
+}
+.hM{
+    margin-right: 600px;
+    margin-top: -60px;
+}
+
+/*Acaba css de nuevo cliente*/

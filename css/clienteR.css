@@ -2,7 +2,7 @@
     width: 320px;
     height: 50px;
     /*margin: auto;*/
-    margin-left: 1100px;
+    margin-left: 1200px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -84,29 +84,9 @@ h3{
     color:black;
     border: solid 1px #ccc;
 }
-.buscar{
-    margin-left: 1430px;
-    margin-top: -37px;
-}
-.s{
-    height: 30px;
-    margin-top: -15px;
-    border-radius: 5px;
-}
-.search{
-    width: 90px;
-    height: 30px;
-    margin-top: -10px;
-    border-radius: 5px;
-    background-color:  var(--SpaceBlue);
-    color: var(--WoodWhite);
-}
-.search:hover{
-    background-color:  var(--WoodWhite);
-    color: var(--SpaceBlue);
-}
+
 .table tbody{
-    height: 258px;
+    height: 298px;
     overflow-y: auto;
     width: 690px;
 }
@@ -141,16 +121,18 @@ td{
 }
 
 #acre{
-    margin-top: -110px;
-    margin-left: -110px;
+    margin-top: 12px;
+    margin-left: -50px;
 }
 #info{
     margin-left: 100px;
 }
 #tipos{
     margin-left: 30px;
+    font-size: 20px;
 }
 #tips{
     font-size: 25px;
 }
+
 /*Acaba css de nuevo cliente*/

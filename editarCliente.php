@@ -2,23 +2,12 @@
 if(!isset($_GET['id'])){
     header("Location:hola.html");
 }
-function conectar(){
-    $servidor='localhost';
-    $bd='hola';
-    $user='root';
-    $pass='123abc';
-    try{
-        $conexionDB=new PDO('mysql:host='.$servidor. ';dbname=' .$bd, $user,$pass);
-        return $conexionDB;
-    }catch(PDOException $ex){
-        die($ex->getMessage());
-    }
-}
+include_once 'datos/Conexion.php';
 $conexion=conectar();
 $id=$_GET['id'];
-$resultado=$conexion->prepare("SELECT cliente.idCliente, cliente.nombreCliente,cliente.apellidosCliente,cliente.direccionCliente,cliente.fechaNacimiento,cliente.telefono,cliente.email,cliente.CURP,cliente.tipo,estado.Estado,municipio.Municipio from cliente,estado,municipio WHERE cliente.idCliente=?;");
+$resultado=$conexion->prepare("SELECT clientes.idCliente, clientes.nombreCliente,clientes.apellidosCliente,clientes.direccionCliente,clientes.fechaNacimiento,clientes.telefono,clientes.email,clientes.CURP,clientes.tipo,estado.Estado,municipio.Municipio from clientes,estado,municipio WHERE clientes.idCliente=?;");
 $resultado->execute([$id]);
-$cliente=$resultado->fetch(PDO::FETCH_OBJ);
+$clientes=$resultado->fetch(PDO::FETCH_OBJ);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -48,13 +37,14 @@ $cliente=$resultado->fetch(PDO::FETCH_OBJ);
     
         <nav id="site-nav" class="site-nav">
             <ul>
-                <li><a href="Inventario.html">Inventario</a>
-                <li><a href="Ventas.html">Ventas</a>
-                <li><a href="Clientes.html">Clientes</a>
-                <li><a href="Proveedores.html">Proveedores</a>
-                <li><a href="Acreedores.html">Acreedores</a>
-                <li><a href="Socios.html">Socios</a>
-                <li><a href="Cuenta.html">Cuenta</a>
+            <li><a href="productosA.php">Inventario</a>
+                <li><a href="VentasA.php">Ventas</a>
+                <li><a href="ClientesA.php">Clientes</a>
+                <li><a href="ProveedorA.php">Proveedores</a>
+                <li><a href="ComprasA.php">Compras</a>
+                <li><a href="Empleados.php">Empleados</a>
+                <li><a href="CuentaA.php">Cuenta</a>
+                <li><a href="Cuenta.html">Catalogo</a>
             </ul>
         </nav>
 
@@ -69,21 +59,21 @@ $cliente=$resultado->fetch(PDO::FETCH_OBJ);
     <section class="formu">
         <h3>Editar cliente</h3>
     <form method="POST" action="editardatosCliente.php" id="frmCliente">
-    <td><input type="text" class="controls" name="txtNombreu" value="<?php echo $cliente->nombreCliente;?>" id="nom"></td>
-        <td><input type="text" class="controls" name="txtApellidou" value="<?php echo $cliente->apellidosCliente;?>"  id="ape"></td>
-        <td><input type="text" class="controls" name="txtCurpu" value="<?php echo $cliente->CURP;?>" id="cur"></td>
-        <td><input type="text" class="controls1" name="txtDirecionu" value="<?php echo $cliente->direccionCliente;?>" id="dir"></td>
-        <td><input type="text" class="controls" name="txtEstadou" value="<?php echo $cliente->Estado;?>" id="est"></td>
-        <td><input type="text" class="controls" name="txtMunicipiou" value="<?php echo $cliente->Municipio;?>" id="mun"></td>
-        <td><input type="text" class="controls" name="txtTelefonou" value="<?php echo $cliente->telefono;?>" id="tel"></td>
-        <td><input type="email" class="controls" name="txtEmailu" value="<?php echo $cliente->email;?>" id="ema"></td>
-        <td><input type="text" class="controls" name="txtFechau" value="<?php echo $cliente->fechaNacimiento;?>" id="fec"></td>
+    <td><input type="text" class="controls" name="txtNombreu" value="<?php echo $clientes->nombreCliente;?>" id="nom"></td>
+        <td><input type="text" class="controls" name="txtApellidou" value="<?php echo $clientes->apellidosCliente;?>"  id="ape"></td>
+        <td><input type="text" class="controls" name="txtCurpu" value="<?php echo $clientes->CURP;?>" id="cur"></td>
+        <td><input type="text" class="controls1" name="txtDirecionu" value="<?php echo $clientes->direccionCliente;?>" id="dir"></td>
+        <td><input type="text" class="controls" name="txtEstadou" value="<?php echo $clientes->Estado;?>" id="est"></td>
+        <td><input type="text" class="controls" name="txtMunicipiou" value="<?php echo $clientes->Municipio;?>" id="mun"></td>
+        <td><input type="text" class="controls" name="txtTelefonou" value="<?php echo $clientes->telefono;?>" id="tel"></td>
+        <td><input type="email" class="controls" name="txtEmailu" value="<?php echo $clientes->email;?>" id="ema"></td>
+        <td><input type="text" class="controls" name="txtFechau" value="<?php echo $clientes->fechaNacimiento;?>" id="fec"></td>
         <td><label for="tiposu" id="tipsu">Tipo de cliente</label><select name="txtTipou" id="tiposu">
             <option value="normal">Normal</option>
             <option value="socio">Socio</option>
         </select></td>
         <input type="hidden" name="oculto">
-        <input type="hidden" name="id" value="<?php echo $cliente->idCliente;?>">
+        <input type="hidden" name="id" value="<?php echo $clientes->idCliente;?>">
         <input type="submit" value="Editar cliente" class="boton" name="registrar" id="btnEditar">
     </form>
     </section> 
@@ -93,22 +83,22 @@ $cliente=$resultado->fetch(PDO::FETCH_OBJ);
 <script type="text/javascript"> 
     $(document).ready(function(){
         $('#btnEditar').click(function(){
-                var datos=$("#frmCliente").serialize();
-                $.ajax({
-                    type:"POST",
-                    url:"editardatosCliente.php",
-                    data: datos,
-                    success: function(e){
-                    if(e==1){
-                        alert("Cliente actualizado");
-                    }else if(e==2){
-                        alert("Error al registrar");
-                    }else if(e==3){
-                        alert("Debe llenar todos los campos")
-                    }
-                    }
-                });
-                return false;
+            var datos=$("#frmCliente").serialize();
+            $.ajax({
+                type:"POST",
+                url:"editardatosCliente.php",
+                data: datos,
+                success: function(e){
+                if(e==1){
+                    alert("Cliente actualizado");
+                }else if(e==2){
+                    alert("Error al actualizar");
+                }else if(e==3){
+                    alert("CURP ya utilizada")
+                }
+                }
+            });                            
+            return false;
         });         
     });
 </script>
